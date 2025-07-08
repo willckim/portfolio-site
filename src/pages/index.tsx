@@ -1,115 +1,154 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import React from "react";
+import Head from "next/head";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Github, ExternalLink } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
+export default function Portfolio() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Head>
+        <title>William Kim – Full-Stack Developer & Future Physician</title>
+        <meta name="description" content="Portfolio of William Kim – Gymnast, pre-med student, full-stack developer. Creator of GhostTab, ShadowTrack, and ExplainAnything.ai." />
+        <meta property="og:title" content="William Kim – Developer & Athlete" />
+        <meta property="og:description" content="Check out projects by William Kim: Chrome extensions, AI tools, and apps for medical professionals." />
+        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourdomain.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="William Kim – Developer & Athlete" />
+        <meta name="twitter:description" content="Projects, resume, and background of William Kim. Focus tools and med school apps." />
+        <meta name="twitter:image" content="/og-image.png" />
+      </Head>
+
+      <main className="min-h-screen bg-background text-foreground">
+        {/* Navbar */}
+        <header className="sticky top-0 z-50 bg-background border-b border-border p-4 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0">
+          <h1 className="text-lg font-semibold">William Kim</h1>
+          <nav className="space-x-4 md:space-x-6 text-sm md:text-base">
+            <a href="#about" className="hover:underline">About</a>
+            <a href="#resume" className="hover:underline">Resume</a>
+            <a href="#projects" className="hover:underline">Projects</a>
+            <a href="#contact" className="hover:underline">Contact</a>
+          </nav>
+          <ThemeToggle />
+        </header>
+
+        <div className="p-4 md:p-8 space-y-12 md:space-y-16">
+          {/* Hero Section */}
+          <section className="text-center space-y-4">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">William Kim</h2>
+            <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
+              I build focus tools, medical AI apps, and hit muscle-ups at 4 AM.
+            </p>
+          </section>
+
+          {/* About Section */}
+          <section id="about" className="max-w-3xl mx-auto space-y-4 px-4">
+            <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
+            <p className="text-sm sm:text-base">
+              I'm William — a gymnast, pre-med student, and full-stack developer passionate
+              about building tools that blend health, focus, and AI. From competing at
+              gymnastics nationals to coding apps like GhostTab and ShadowTrack, I thrive
+              at the intersection of performance, tech, and healthcare.
+            </p>
+          </section>
+
+          {/* Resume Section */}
+          <section id="resume" className="max-w-3xl mx-auto space-y-4 px-4">
+            <h2 className="text-xl sm:text-2xl font-semibold">Resume</h2>
+            <Button asChild variant="default">
+              <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
+                Download Resume
+              </a>
+            </Button>
+            <div className="space-y-2">
+              <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>JavaScript, TypeScript, React, Next.js, Tailwind, Supabase</li>
+                <li>Chrome Extensions, AI APIs, Full-stack Web Apps</li>
+                <li>UI/UX Design, GitHub, Vercel, REST APIs</li>
+              </ul>
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>👨‍⚕️ Physical Therapy Aide – patient care, clinical documentation, rehab support</li>
+                <li>💻 Full-Stack Developer – creator of GhostTab, ShadowTrack, ExplainAnything.ai</li>
+                <li>🤸‍♂️ National Gymnast – rings specialist and NAIGC competitor</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Projects Section */}
+          <section id="projects" className="max-w-5xl mx-auto space-y-8 px-4">
+            <h2 className="text-xl sm:text-2xl font-semibold">Projects & Apps</h2>
+
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  name: "GhostTab",
+                  desc: "A Chrome extension that enforces tab limits and Pomodoro focus modes.",
+                  live: null,
+                  github: "https://github.com/willckim/ghosttab"
+                },
+                {
+                  name: "ShadowTrack",
+                  desc: "A med school shadowing log with AI summaries and hour tracking.",
+                  live: "https://shadowtrack.vercel.app",
+                  github: "https://github.com/willckim/shadowing-log"
+                },
+                {
+                  name: "ExplainAnything.ai",
+                  desc: "An AI utility that simplifies documents and explains content in any tone or language.",
+                  live: "https://explain-anything.vercel.app",
+                  github: "https://github.com/willckim/explain-anything"
+                }
+              ].map((project) => (
+                <Card key={project.name}>
+                  <CardContent className="space-y-2 p-4">
+                    <h3 className="text-lg sm:text-xl font-semibold">{project.name}</h3>
+                    <p className="text-sm sm:text-base">{project.desc}</p>
+                    <div className="flex flex-wrap gap-4">
+                      {project.live && (
+                        <Button asChild variant="outline">
+                          <a href={project.live} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-1" /> Live
+                          </a>
+                        </Button>
+                      )}
+                      <Button asChild variant="outline">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4 mr-1" /> GitHub
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="max-w-3xl mx-auto space-y-4 px-4">
+            <h2 className="text-xl sm:text-2xl font-semibold">Contact</h2>
+            <ul className="space-y-2 text-sm sm:text-base">
+              <li>Email: <a href="mailto:williamcjk11@gmail.com" className="text-blue-500">williamcjk11@gmail.com</a></li>
+              <li>LinkedIn: <a href="https://www.linkedin.com/in/william-c-kim/" className="text-blue-500" target="_blank">william-c-kim</a></li>
+              <li>GitHub: <a href="https://github.com/willckim" className="text-blue-500" target="_blank">@willckim</a></li>
+            </ul>
+          </section>
+
+          {/* Music Attribution */}
+          <footer className="py-8">
+            <p className="text-xs text-muted-foreground text-center">
+              Music: Lost Sky - Fearless pt.II (feat. Chris Linton) [NCS Release]<br />
+              Provided by NoCopyrightSounds • <a href="http://ncs.io/Fearless2" target="_blank" className="underline">Free Download</a>
+            </p>
+          </footer>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
