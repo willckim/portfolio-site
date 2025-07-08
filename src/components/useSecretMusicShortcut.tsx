@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 export function useSecretMusicShortcut() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [enabled, setEnabled] = useState(false)
+  const isPlayingRef = useRef(false)
 
   useEffect(() => {
     const handleKeyCombo = (e: KeyboardEvent) => {
@@ -15,15 +15,13 @@ export function useSecretMusicShortcut() {
 
       if (combo) {
         e.preventDefault()
-        setEnabled((prev) => {
-          if (!prev) {
-            audioRef.current?.play()
-          } else {
-            audioRef.current?.pause()
-            audioRef.current!.currentTime = 0
-          }
-          return !prev
-        })
+        if (!isPlayingRef.current) {
+          audioRef.current?.play()
+        } else {
+          audioRef.current?.pause()
+          if (audioRef.current) audioRef.current.currentTime = 0
+        }
+        isPlayingRef.current = !isPlayingRef.current
       }
     }
 

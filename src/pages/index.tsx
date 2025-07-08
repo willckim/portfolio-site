@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import Head from "next/head";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +12,10 @@ export default function Portfolio() {
     <>
       <Head>
         <title>William Kim – Full-Stack Developer & Future Physician</title>
-        <meta name="description" content="Portfolio of William Kim – Gymnast, pre-med student, full-stack developer. Creator of GhostTab, ShadowTrack, and ExplainAnything.ai." />
+        <meta
+          name="description"
+          content="Portfolio of William Kim – Gymnast, pre-med student, full-stack developer. Creator of GhostTab, ShadowTrack, and ExplainAnything.ai."
+        />
         <meta property="og:title" content="William Kim – Developer & Athlete" />
         <meta property="og:description" content="Check out projects by William Kim: Chrome extensions, AI tools, and apps for medical professionals." />
         <meta property="og:image" content="/og-image.png" />
@@ -47,8 +52,8 @@ export default function Portfolio() {
           {/* About Section */}
           <section id="about" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
-            <p className="text-sm sm:text-base">
-              I'm William — a gymnast, pre-med student, and full-stack developer passionate
+            <p className="text-sm sm:text-base leading-relaxed">
+              I&apos;m William — a gymnast, pre-med student, and full-stack developer passionate
               about building tools that blend health, focus, and AI. From competing at
               gymnastics nationals to coding apps like GhostTab and ShadowTrack, I thrive
               at the intersection of performance, tech, and healthcare.
@@ -63,6 +68,7 @@ export default function Portfolio() {
                 Download Resume
               </a>
             </Button>
+
             <div className="space-y-2">
               <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
               <ul className="list-disc list-inside text-sm">
@@ -71,6 +77,7 @@ export default function Portfolio() {
                 <li>UI/UX Design, GitHub, Vercel, REST APIs</li>
               </ul>
             </div>
+
             <div className="space-y-2">
               <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
               <ul className="list-disc list-inside text-sm">
@@ -114,13 +121,15 @@ export default function Portfolio() {
                       {project.live && (
                         <Button asChild variant="outline">
                           <a href={project.live} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-1" /> Live
+                            <ExternalLink className="w-4 h-4 mr-1" />
+                            Live
                           </a>
                         </Button>
                       )}
                       <Button asChild variant="outline">
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4 mr-1" /> GitHub
+                          <Github className="w-4 h-4 mr-1" />
+                          GitHub
                         </a>
                       </Button>
                     </div>
@@ -134,17 +143,36 @@ export default function Portfolio() {
           <section id="contact" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">Contact</h2>
             <ul className="space-y-2 text-sm sm:text-base">
-              <li>Email: <a href="mailto:williamcjk11@gmail.com" className="text-blue-500">williamcjk11@gmail.com</a></li>
-              <li>LinkedIn: <a href="https://www.linkedin.com/in/william-c-kim/" className="text-blue-500" target="_blank">william-c-kim</a></li>
-              <li>GitHub: <a href="https://github.com/willckim" className="text-blue-500" target="_blank">@willckim</a></li>
+              <li>
+                Email:{" "}
+                <a href="mailto:williamcjk11@gmail.com" className="text-blue-500 hover:underline">
+                  williamcjk11@gmail.com
+                </a>
+              </li>
+              <li>
+                LinkedIn:{" "}
+                <a href="https://www.linkedin.com/in/william-c-kim/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                  william-c-kim
+                </a>
+              </li>
+              <li>
+                GitHub:{" "}
+                <a href="https://github.com/willckim" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                  @willckim
+                </a>
+              </li>
             </ul>
           </section>
 
-          {/* Music Attribution */}
+          {/* Footer */}
           <footer className="py-8">
             <p className="text-xs text-muted-foreground text-center">
-              Music: Lost Sky - Fearless pt.II (feat. Chris Linton) [NCS Release]<br />
-              Provided by NoCopyrightSounds • <a href="http://ncs.io/Fearless2" target="_blank" className="underline">Free Download</a>
+              Music: Lost Sky - Fearless pt.II (feat. Chris Linton) [NCS Release]
+              <br />
+              Provided by NoCopyrightSounds •{" "}
+              <a href="http://ncs.io/Fearless2" target="_blank" rel="noopener noreferrer" className="underline">
+                Free Download
+              </a>
             </p>
           </footer>
         </div>
