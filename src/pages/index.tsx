@@ -95,11 +95,11 @@ export default function Portfolio() {
             <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
-                  name: "GhostTab",
-                  desc: "A Chrome extension that enforces tab limits and Pomodoro focus modes.",
-                  live: null,
-                  github: "https://github.com/willckim/ghosttab"
-                },
+  name: "GhostTab",
+  desc: "A Chrome extension that enforces tab limits and Pomodoro focus modes.",
+  live: "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
+  github: "https://github.com/willckim/ghosttab"
+},
                 {
                   name: "ShadowTrack",
                   desc: "A med school shadowing log with AI summaries and hour tracking.",
