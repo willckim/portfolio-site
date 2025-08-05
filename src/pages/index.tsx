@@ -64,10 +64,10 @@ export default function Portfolio() {
           <section id="resume" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">Resume</h2>
             <Button asChild variant="default">
-              <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
-                Download Resume
-              </a>
-            </Button>
+  <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
+    Download Resume
+  </a>
+</Button>
 
             <div className="space-y-2">
               <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
