@@ -101,11 +101,11 @@ export default function Portfolio() {
   github: "https://github.com/willckim/ghosttab"
 },
                 {
-                  name: "ShadowTrack",
-                  desc: "A med school shadowing log with AI summaries and hour tracking.",
-                  live: "https://shadowtrack.vercel.app",
-                  github: "https://github.com/willckim/shadowing-log"
-                },
+  name: "ShadowTrack",
+  desc: "A med school shadowing log with AI summaries and hour tracking.",
+  live: "https://shadowtrack.vercel.app",
+  github: "https://github.com/willckim/shadowtrack"
+},
                 {
   name: "ExplainAnything.ai",
   desc: "An AI utility that simplifies documents and explains content in any tone or language.",
