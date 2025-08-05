@@ -107,11 +107,12 @@ export default function Portfolio() {
                   github: "https://github.com/willckim/shadowing-log"
                 },
                 {
-                  name: "ExplainAnything.ai",
-                  desc: "An AI utility that simplifies documents and explains content in any tone or language.",
-                  live: "https://explain-anything.vercel.app",
-                  github: "https://github.com/willckim/explain-anything"
-                }
+  name: "ExplainAnything.ai",
+  desc: "An AI utility that simplifies documents and explains content in any tone or language.",
+  live: "https://explain-anything.vercel.app",
+  github: "https://github.com/willckim/explain-anything-ai"
+}
+
               ].map((project) => (
                 <Card key={project.name}>
                   <CardContent className="space-y-2 p-4">
