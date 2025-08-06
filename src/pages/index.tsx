@@ -205,8 +205,7 @@ export default function Portfolio() {
               </a>
             </p>
           </footer>
-        </div>
-      </main>
+      </main> {/* ✅ Closing main tag here */}
     </>
   );
 }
