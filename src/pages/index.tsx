@@ -20,7 +20,7 @@ export default function Portfolio() {
         <meta property="og:description" content="Check out projects by William Kim: Chrome extensions, AI tools, and apps for medical professionals." />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com" />
+        <meta property="og:url" content="https://williamckim.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="William Kim – Developer & Athlete" />
         <meta name="twitter:description" content="Projects, resume, and background of William Kim. Focus tools and med school apps." />
@@ -89,56 +89,76 @@ export default function Portfolio() {
           </section>
 
           {/* Projects Section */}
-          <section id="projects" className="max-w-5xl mx-auto space-y-8 px-4">
-            <h2 className="text-xl sm:text-2xl font-semibold">Projects & Apps</h2>
+<section id="projects" className="max-w-5xl mx-auto space-y-8 px-4">
+  <h2 className="text-xl sm:text-2xl font-semibold">Projects & Apps</h2>
 
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                {
-  name: "GhostTab",
-  desc: "A Chrome extension that enforces tab limits and Pomodoro focus modes.",
-  live: "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
-  github: "https://github.com/willckim/ghosttab"
-},
-                {
-  name: "ShadowTrack",
-  desc: "A med school shadowing log with AI summaries and hour tracking.",
-  live: "https://shadowtrack.vercel.app",
-  github: "https://github.com/willckim/shadowtrack"
-},
-                {
-  name: "ExplainAnything.ai",
-  desc: "An AI utility that simplifies documents and explains content in any tone or language.",
-  live: "https://explain-anything.vercel.app",
-  github: "https://github.com/willckim/explain-anything-ai"
-}
-
-              ].map((project) => (
-                <Card key={project.name}>
-                  <CardContent className="space-y-2 p-4">
-                    <h3 className="text-lg sm:text-xl font-semibold">{project.name}</h3>
-                    <p className="text-sm sm:text-base">{project.desc}</p>
-                    <div className="flex flex-wrap gap-4">
-                      {project.live && (
-                        <Button asChild variant="outline">
-                          <a href={project.live} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-1" />
-                            Live
-                          </a>
-                        </Button>
-                      )}
-                      <Button asChild variant="outline">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4 mr-1" />
-                          GitHub
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
+  <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+    {[
+      {
+        name: "GhostTab",
+        desc: "A Chrome extension that enforces tab limits and Pomodoro focus modes.",
+        live: "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
+        github: "https://github.com/willckim/ghosttab"
+      },
+      {
+        name: "ShadowTrack",
+        desc: "A med school shadowing log with AI summaries and hour tracking.",
+        live: "https://shadowtrack.vercel.app",
+        github: "https://github.com/willckim/shadowtrack"
+      },
+      {
+        name: "ExplainAnything.ai",
+        desc: "An AI utility that simplifies documents and explains content in any tone or language.",
+        live: "https://explain-anything.vercel.app",
+        github: "https://github.com/willckim/explain-anything-ai"
+      },
+      {
+        name: "CJ Reflecta",
+        desc: "🚧 In Development – AI-powered journaling app for guided self-reflection and emotional growth.",
+        live: null,
+        github: null
+      },
+      {
+        name: "Doyrix",
+        desc: "🚧 In Development – GPT-powered investing assistant that breaks down earnings calls, 10-Ks, and portfolio insights.",
+        live: null,
+        github: null
+      }
+    ].map((project) => (
+      <Card key={project.name}>
+        <CardContent className="space-y-2 p-4">
+          <h3 className="text-lg sm:text-xl font-semibold flex items-center gap-2">
+            {project.name}
+            {project.github === null && (
+              <span className="text-xs bg-yellow-300 text-black px-2 py-0.5 rounded-full">
+                Coming Soon
+              </span>
+            )}
+          </h3>
+          <p className="text-sm sm:text-base">{project.desc}</p>
+          <div className="flex flex-wrap gap-4">
+            {project.live && (
+              <Button asChild variant="outline">
+                <a href={project.live} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-1" />
+                  Live
+                </a>
+              </Button>
+            )}
+            {project.github && (
+              <Button asChild variant="outline">
+                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-4 h-4 mr-1" />
+                  GitHub
+                </a>
+              </Button>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+</section>
 
           {/* Contact Section */}
           <section id="contact" className="max-w-3xl mx-auto space-y-4 px-4">
