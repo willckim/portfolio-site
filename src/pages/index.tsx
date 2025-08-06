@@ -11,18 +11,18 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>William Kim – Software Engineer & Full-Stack Developer</title>
+        <title>William Kim – Software Engineer & AI Developer</title>
        <meta
   name="description"
   content="William Kim – Software Engineer, AI developer, and national-level gymnast. Explore full-stack projects, GPT apps, and digital tools for focus and wellness."
 />
-        <meta property="og:title" content="William Kim – Software Engineer, AI Builder, Gymnast" />
+        <meta property="og:title" content="William Kim – Software Engineer, AI Developer, Gymnast" />
         <meta property="og:description" content="Check out projects by William Kim: Chrome extensions, AI tools, and apps for medical professionals." />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://williamckim.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="William Kim – Software Engineer, AI Builder, Gymnast" />
+        <meta name="twitter:title" content="William Kim – Software Engineer, AI Developer, Gymnast" />
         <meta name="twitter:description" content="Projects, resume, and background of William Kim. Focus tools and med school apps." />
         <meta name="twitter:image" content="/og-image.png" />
       </Head>
@@ -43,7 +43,7 @@ export default function Portfolio() {
         <section className="text-center space-y-4">
   <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">William Kim</h2>
   <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-    Software Engineer & Full-Stack Developer building tools that boost focus, wellness, and intelligence.
+    Software Engineer & AI Developer building intelligent tools for focus, wellness, and performance.
   </p>
   <p className="text-sm sm:text-base text-muted-foreground">
     AI engineering, developer precision, and gymnast-level discipline.
@@ -55,7 +55,7 @@ export default function Portfolio() {
           <section id="about" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
            <p className="text-sm sm:text-base leading-relaxed">
-  I&apos;m William Kim — a software engineer, full-stack developer, and national-level gymnast. I build scalable AI-powered tools across web and mobile that enhance focus, wellness, and performance. My work blends technical precision with a human-centered mindset, shaped by my background in medicine, athletics, and engineering.
+  I&apos;m William Kim — a software engineer, AI developer, and national-level gymnast. I build scalable AI-powered tools across web and mobile that enhance focus, wellness, and performance. My work blends technical precision with a human-centered mindset, shaped by my background in medicine, athletics, and engineering.
 </p>
           </section>
 
