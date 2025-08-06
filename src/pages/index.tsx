@@ -70,13 +70,16 @@ export default function Portfolio() {
 </Button>
 
             <div className="space-y-2">
-              <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
-              <ul className="list-disc list-inside text-sm">
-                <li>JavaScript, TypeScript, React, Next.js, Tailwind, Supabase</li>
-                <li>Chrome Extensions, AI APIs, Full-stack Web Apps</li>
-                <li>UI/UX Design, GitHub, Vercel, REST APIs</li>
-              </ul>
-            </div>
+  <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
+  <ul className="list-disc list-inside text-sm">
+    <li>JavaScript, TypeScript, Python, React, Next.js, Tailwind CSS</li>
+    <li>GPT-4 API, LangChain, Supabase, Firebase, PostgreSQL</li>
+    <li>Full-Stack Web Dev, Chrome Extensions, AI Prompt Engineering</li>
+    <li>UI/UX Design, REST APIs, Vercel, GitHub, CI/CD</li>
+    <li>Indie Hacker Projects, Rapid Prototyping, SEO Optimization</li>
+  </ul>
+</div>
+
 
             <div className="space-y-2">
               <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
