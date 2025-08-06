@@ -69,16 +69,18 @@ export default function Portfolio() {
   </a>
 </Button>
 
-            <div className="space-y-2">
+   <div className="space-y-2">
   <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
   <ul className="list-disc list-inside text-sm">
-    <li>JavaScript, TypeScript, Python, React, Next.js, Tailwind CSS</li>
-    <li>GPT-4 API, LangChain, Supabase, Firebase, PostgreSQL</li>
-    <li>Full-Stack Web Dev, Chrome Extensions, AI Prompt Engineering</li>
-    <li>UI/UX Design, REST APIs, Vercel, GitHub, CI/CD</li>
-    <li>Indie Hacker Projects, Rapid Prototyping, SEO Optimization</li>
+    <li><strong>Languages:</strong> Python, JavaScript, TypeScript, SQL, Java, C++, Bash, R, MIPS, HTML/CSS</li>
+    <li><strong>Frameworks & Libraries:</strong> React, Next.js, Tailwind CSS, Flask, Tkinter, Chrome Extensions</li>
+    <li><strong>AI & Data:</strong> GPT-4 APIs, Pandas, NumPy, Matplotlib, Seaborn, Jupyter, MySQL</li>
+    <li><strong>Cloud & Platforms:</strong> AWS, Azure, GCP, Supabase, Firebase, Salesforce, SAP</li>
+    <li><strong>Dev Tools:</strong> GitHub, VSCode, REST APIs, WordPress, Vercel, Power BI, Tableau, Excel</li>
+    <li><strong>Certifications:</strong> AWS Databricks Platform Architect, Generative AI Fundamentals</li>
   </ul>
 </div>
+
 
 
             <div className="space-y-2">
