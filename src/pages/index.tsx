@@ -11,18 +11,18 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>William Kim – Full-Stack Developer & Future Physician</title>
-        <meta
-          name="description"
-          content="Portfolio of William Kim – Gymnast, pre-med student, full-stack developer. Creator of GhostTab, ShadowTrack, and ExplainAnything.ai."
-        />
-        <meta property="og:title" content="William Kim – Full-Stack Developer, AI Builder, Gymnast" />
+        <title>William Kim – Software Engineer & Full-Stack Developer</title>
+       <meta
+  name="description"
+  content="William Kim – Software Engineer, AI developer, and national-level gymnast. Explore full-stack projects, GPT apps, and digital tools for focus and wellness."
+/>
+        <meta property="og:title" content="William Kim – Software Engineer, AI Builder, Gymnast" />
         <meta property="og:description" content="Check out projects by William Kim: Chrome extensions, AI tools, and apps for medical professionals." />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://williamckim.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="William Kim – Full-Stack Developer, AI Builder, Gymnast" />
+        <meta name="twitter:title" content="William Kim – Software Engineer, AI Builder, Gymnast" />
         <meta name="twitter:description" content="Projects, resume, and background of William Kim. Focus tools and med school apps." />
         <meta name="twitter:image" content="/og-image.png" />
       </Head>
@@ -40,23 +40,22 @@ export default function Portfolio() {
           <ThemeToggle />
         </header>
 
-        <div className="p-4 md:p-8 space-y-12 md:space-y-16">
-          {/* Hero Section */}
-          <section className="text-center space-y-4">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">William Kim</h2>
-            <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-              I build focus tools, medical AI apps, and hit muscle-ups at 4 AM.
-            </p>
-            <p className="text-sm sm:text-base text-muted-foreground">
-              AI tools, developer precision, and gymnast-level discipline.
-            </p>
-          </section>
+        <section className="text-center space-y-4">
+  <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">William Kim</h2>
+  <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
+    Software Engineer & Full-Stack Developer building tools that boost focus, wellness, and intelligence.
+  </p>
+  <p className="text-sm sm:text-base text-muted-foreground">
+    AI engineering, developer precision, and gymnast-level discipline.
+  </p>
+</section>
+
 
           {/* About Section */}
           <section id="about" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
            <p className="text-sm sm:text-base leading-relaxed">
-  I&apos;m William Kim — a full-stack developer, AI engineer, and national-level gymnast. I build web and mobile tools that enhance focus, wellness, and intelligence...
+  I&apos;m William Kim — a software engineer, full-stack developer, and national-level gymnast. I build scalable AI-powered tools across web and mobile that enhance focus, wellness, and performance. My work blends technical precision with a human-centered mindset, shaped by my background in medicine, athletics, and engineering.
 </p>
           </section>
 
@@ -64,10 +63,10 @@ export default function Portfolio() {
           <section id="resume" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">Resume</h2>
             <Button asChild variant="default">
-              <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
-                Download Resume
-              </a>
-            </Button>
+  <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
+    Download PDF Resume
+  </a>
+</Button>
 
             <div className="space-y-2">
               <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
