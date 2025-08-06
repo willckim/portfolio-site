@@ -16,13 +16,13 @@ export default function Portfolio() {
           name="description"
           content="Portfolio of William Kim – Gymnast, pre-med student, full-stack developer. Creator of GhostTab, ShadowTrack, and ExplainAnything.ai."
         />
-        <meta property="og:title" content="William Kim – Developer & Athlete" />
+        <meta property="og:title" content="William Kim – Full-Stack Developer, AI Builder, Gymnast" />
         <meta property="og:description" content="Check out projects by William Kim: Chrome extensions, AI tools, and apps for medical professionals." />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://williamckim.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="William Kim – Developer & Athlete" />
+        <meta name="twitter:title" content="William Kim – Full-Stack Developer, AI Builder, Gymnast" />
         <meta name="twitter:description" content="Projects, resume, and background of William Kim. Focus tools and med school apps." />
         <meta name="twitter:image" content="/og-image.png" />
       </Head>
@@ -47,16 +47,16 @@ export default function Portfolio() {
             <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
               I build focus tools, medical AI apps, and hit muscle-ups at 4 AM.
             </p>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              AI tools, developer precision, and gymnast-level discipline.
+            </p>
           </section>
 
           {/* About Section */}
           <section id="about" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
             <p className="text-sm sm:text-base leading-relaxed">
-              I&apos;m William — a gymnast, pre-med student, and full-stack developer passionate
-              about building tools that blend health, focus, and AI. From competing at
-              gymnastics nationals to coding apps like GhostTab and ShadowTrack, I thrive
-              at the intersection of performance, tech, and healthcare.
+              I'm William Kim — a full-stack developer, AI engineer, and national-level gymnast. I build web and mobile tools that enhance focus, wellness, and intelligence. From Chrome extensions to GPT-4 powered apps, I engineer clean, scalable products with an eye for performance and user experience. My background spans pre-med studies, physical therapy, and self-taught software engineering, giving me a uniquely human-centered approach to tech.
             </p>
           </section>
 
@@ -64,24 +64,29 @@ export default function Portfolio() {
           <section id="resume" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">Resume</h2>
             <Button asChild variant="default">
-  <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
-    Download Resume
-  </a>
-</Button>
+              <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
+                Download Resume
+              </a>
+            </Button>
 
-   <div className="space-y-2">
-  <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
-  <ul className="list-disc list-inside text-sm">
-    <li><strong>Languages:</strong> Python, JavaScript, TypeScript, SQL, Java, C++, Bash, R, MIPS, HTML/CSS</li>
-    <li><strong>Frameworks & Libraries:</strong> React, Next.js, Tailwind CSS, Flask, Tkinter, Chrome Extensions</li>
-    <li><strong>AI & Data:</strong> GPT-4 APIs, Pandas, NumPy, Matplotlib, Seaborn, Jupyter, MySQL</li>
-    <li><strong>Cloud & Platforms:</strong> AWS, Azure, GCP, Supabase, Firebase, Salesforce, SAP</li>
-    <li><strong>Dev Tools:</strong> GitHub, VSCode, REST APIs, WordPress, Vercel, Power BI, Tableau, Excel</li>
-    <li><strong>Certifications:</strong> AWS Databricks Platform Architect, Generative AI Fundamentals</li>
-  </ul>
-</div>
+            <div className="space-y-2">
+              <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>Languages: Python, JavaScript, TypeScript, SQL, Java, C++, HTML/CSS, Bash, R, MIPS</li>
+                <li>Data Tools: Pandas, NumPy, Matplotlib, Seaborn, MySQL, Power BI, Tableau, Excel</li>
+                <li>Frameworks: React, Next.js, Tailwind CSS, Tkinter, Flask, Chrome Extensions</li>
+                <li>Platforms: GitHub, VSCode, APIs, Firebase, Supabase, WordPress, Vercel, ChatGPT</li>
+                <li>Cloud/Enterprise: AWS, Azure, Google Cloud (GCP), Salesforce, SAP</li>
+              </ul>
+            </div>
 
-
+            <div className="space-y-2">
+              <h3 className="font-semibold text-sm sm:text-base">Certifications</h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>AWS Databricks Platform Architect</li>
+                <li>Generative AI Fundamentals</li>
+              </ul>
+            </div>
 
             <div className="space-y-2">
               <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
