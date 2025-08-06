@@ -55,9 +55,9 @@ export default function Portfolio() {
           {/* About Section */}
           <section id="about" className="max-w-3xl mx-auto space-y-4 px-4">
             <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
-            <p className="text-sm sm:text-base leading-relaxed">
-              I'm William Kim — a full-stack developer, AI engineer, and national-level gymnast. I build web and mobile tools that enhance focus, wellness, and intelligence. From Chrome extensions to GPT-4 powered apps, I engineer clean, scalable products with an eye for performance and user experience. My background spans pre-med studies, physical therapy, and self-taught software engineering, giving me a uniquely human-centered approach to tech.
-            </p>
+           <p className="text-sm sm:text-base leading-relaxed">
+  I&apos;m William Kim — a full-stack developer, AI engineer, and national-level gymnast. I build web and mobile tools that enhance focus, wellness, and intelligence...
+</p>
           </section>
 
           {/* Resume Section */}
