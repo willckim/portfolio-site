@@ -88,13 +88,14 @@ export default function Portfolio() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
-              <ul className="list-disc list-inside text-sm">
-                <li>👨‍⚕️ Physical Therapy Aide – patient care, clinical documentation, rehab support</li>
-                <li>💻 Full-Stack Developer – creator of GhostTab, ShadowTrack, ExplainAnything.ai</li>
-                <li>🤸‍♂️ National Gymnast – rings specialist and NAIGC competitor</li>
-              </ul>
-            </div>
+  <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
+  <ul className="list-disc list-inside text-sm">
+    <li>💻 Software Engineer – built GPT-powered tools like ExplainAnything.ai and Doyrix</li>
+    <li>📱 Mobile App Developer – creator of CJ Reflecta, an AI mental health journal</li>
+    <li>👨‍⚕️ Physical Therapy Aide – patient care, clinical documentation, rehab support</li>
+    <li>🤸‍♂️ National Gymnast – rings specialist and NAIGC competitor</li>
+  </ul>
+</div>
           </section>
 
           {/* Projects Section */}
