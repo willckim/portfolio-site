@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
 import React from "react";
 import Head from "next/head";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Mail, Linkedin, FileDown } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Portfolio() {
