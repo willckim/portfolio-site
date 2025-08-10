@@ -88,7 +88,7 @@ export default function Portfolio() {
         <section className="text-center space-y-4 px-4 py-8">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">William Kim</h2>
           <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-            AI Engineer & Full-Stack Developer — building GPT-powered tools that save hours and scale to thousands.
+            AI Engineer & Software Engineer — building GPT-powered tools that save hours and scale to thousands.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Button asChild aria-label="Download resume PDF">
@@ -102,10 +102,14 @@ export default function Portfolio() {
               </a>
             </Button>
             <Button asChild variant="secondary" aria-label="Email William">
-              <a href="mailto:williamcjk11@gmail.com?subject=Recruiter%20Inquiry%20—%20William%20Kim">
-                <Mail className="w-4 h-4 mr-1" /> Email
-              </a>
-            </Button>
+  <a
+    href={`mailto:williamcjk11@gmail.com?subject=${encodeURIComponent(
+      "Recruiter Inquiry — William Kim"
+    )}`}
+  >
+    <Mail className="w-4 h-4 mr-1" /> Email
+  </a>
+</Button>
           </div>
           <p className="text-sm sm:text-base text-muted-foreground">
             Developer precision, AI engineering, and gymnast-level discipline.
@@ -210,9 +214,14 @@ export default function Portfolio() {
           <ul className="space-y-2 text-sm sm:text-base">
             <li>
               Email:{" "}
-              <a href="mailto:williamcjk11@gmail.com?subject=Recruiter%20Inquiry%20—%20William%20Kim" className="text-blue-500 hover:underline">
-                williamcjk11@gmail.com
-              </a>
+              <a
+  href={`mailto:williamcjk11@gmail.com?subject=${encodeURIComponent(
+    "Recruiter Inquiry — William Kim"
+  )}`}
+  className="text-blue-500 hover:underline"
+>
+  williamcjk11@gmail.com
+</a>
             </li>
             <li>
               LinkedIn:{" "}
