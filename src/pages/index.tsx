@@ -191,12 +191,15 @@ export default function Portfolio() {
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-semibold text-sm sm:text-base">Certifications</h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>AWS Databricks Platform Architect</li>
-              <li>Generative AI Fundamentals</li>
-            </ul>
-          </div>
+  <h3 className="font-semibold text-sm sm:text-base">Certifications</h3>
+  <ul className="list-disc list-inside text-sm">
+    <li>Data Landscape of GenAI for Project Managers (PMI)</li>
+    <li>Generative AI Overview for Project Managers (PMI)</li>
+    <li>AWS Databricks Platform Architect</li>
+    <li>Generative AI Fundamentals (Databricks)</li>
+    <li>Azure AI (In Progress)</li>
+  </ul>
+</div>
 
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
