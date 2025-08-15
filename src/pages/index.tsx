@@ -168,17 +168,11 @@ export default function Portfolio() {
         </section>
 
         {/* Resume */}
-        <section id="resume" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
-          <div className="flex items-center justify-between gap-3">
-            <h2 className="text-xl sm:text-2xl font-semibold">Resume</h2>
-            <span className="text-xs sm:text-sm text-muted-foreground">Open to Software / AI / Data roles</span>
-          </div>
-
-          <Button asChild aria-label="Download resume PDF">
-            <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
-              Download PDF Resume
-            </a>
-          </Button>
+<section id="resume" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
+  <div className="flex items-center justify-between gap-3">
+    <h2 className="text-xl sm:text-2xl font-semibold">Resume</h2>
+    <span className="text-xs sm:text-sm text-muted-foreground">Open to Software / AI / Data roles</span>
+  </div>
 
           {/* Compact, scannable skills */}
           <div className="space-y-2">
