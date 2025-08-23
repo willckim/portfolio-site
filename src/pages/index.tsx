@@ -2,28 +2,33 @@
 
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, Mail, Linkedin, FileDown } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Portfolio() {
+  const YEAR = new Date().getFullYear();
+
   const projects = [
     {
       name: "CJ Reflecta",
       desc:
         "🚧 In Development – AI-powered journaling app for guided self-reflection and emotional growth.",
       live: null,
-      github: null,
+      github: "https://github.com/willckim/cj-reflecta",
       proof: "Real-time GPT feedback, mood tracking; +75% daily engagement in tests",
+      tags: ["React Native", "Expo", "GPT-5", "AsyncStorage"],
     },
     {
       name: "Doyrix",
       desc:
         "🚧 In Development – GPT-powered investing assistant that breaks down earnings calls, 10-Ks, and portfolio insights.",
       live: null,
-      github: null,
+      github: "https://github.com/willckim/doyrix",
       proof: "<3 min client one-pagers with page-level citations",
+      tags: ["Next.js", "FastAPI", "Supabase", "Stripe", "GPT-5"],
     },
     {
       name: "ExplainAnything.ai",
@@ -32,6 +37,7 @@ export default function Portfolio() {
       live: "https://explain-anything.vercel.app",
       github: "https://github.com/willckim/explain-anything-ai",
       proof: "ELI5 summaries, multilingual output, voice-to-text",
+      tags: ["Next.js", "Supabase", "Tailwind", "GPT-4"],
     },
     {
       name: "GhostTab",
@@ -41,6 +47,7 @@ export default function Portfolio() {
         "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
       github: "https://github.com/willckim/ghosttab",
       proof: "Published on Chrome Web Store",
+      tags: ["Chrome Extension", "Productivity", "Focus"],
     },
     {
       name: "ShadowTrack",
@@ -49,8 +56,44 @@ export default function Portfolio() {
       live: "https://shadowtrack.vercel.app",
       github: "https://github.com/willckim/shadowtrack",
       proof: "AI note summaries; exportable logs",
+      tags: ["Next.js", "Supabase", "AI Summaries"],
     },
   ];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "William Kim",
+    url: "https://williamckim.com",
+    sameAs: [
+      "https://www.linkedin.com/in/william-c-kim/",
+      "https://github.com/willckim"
+    ],
+    jobTitle: "Software Engineer",
+    worksFor: { "@type": "Organization", name: "Independent" },
+    knowsAbout: ["AI", "Generative AI", "Full-Stack", "Next.js", "FastAPI", "AWS"],
+    hasPart: [
+      {
+        "@type": "CreativeWork",
+        name: "Doyrix",
+        url: "https://github.com/willckim/doyrix",
+        description: "GPT-powered investing assistant"
+      },
+      {
+        "@type": "CreativeWork",
+        name: "CJ Reflecta",
+        url: "https://github.com/willckim/cj-reflecta",
+        description: "AI journaling app for reflection"
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "ExplainAnything.ai",
+        url: "https://explain-anything.vercel.app",
+        applicationCategory: "WebApplication",
+        operatingSystem: "Any"
+      }
+    ]
+  };
 
   return (
     <>
@@ -69,17 +112,29 @@ export default function Portfolio() {
         <meta name="twitter:title" content="William Kim – Software Engineer, AI Developer, Gymnast" />
         <meta name="twitter:description" content="Projects, resume, and background of William Kim." />
         <meta name="twitter:image" content="/og-image.png" />
+        <link rel="canonical" href="https://williamckim.com" />
+        <link rel="icon" href="/favicon.ico" />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </Head>
 
-      <main className="min-h-screen bg-background text-foreground scroll-smooth">
+      {/* Skip link for keyboard users */}
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:p-2">
+        Skip to content
+      </a>
+
+      <main id="main" className="min-h-screen bg-background text-foreground scroll-smooth">
         {/* Navbar */}
         <header className="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-border p-4 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0">
           <h1 className="text-lg font-semibold">William Kim</h1>
           <nav className="space-x-4 md:space-x-6 text-sm md:text-base" aria-label="Primary">
-            <a href="#about" className="hover:underline">About</a>
-            <a href="#projects" className="hover:underline">Projects</a>
-            <a href="#resume" className="hover:underline">Resume</a>
-            <a href="#contact" className="hover:underline">Contact</a>
+            <Link href="#about" className="hover:underline">About</Link>
+            <Link href="#projects" className="hover:underline">Projects</Link>
+            <Link href="#highlights" className="hover:underline">Highlights</Link>
+            <Link href="#contact" className="hover:underline">Contact</Link>
           </nav>
           <ThemeToggle />
         </header>
@@ -88,7 +143,7 @@ export default function Portfolio() {
         <section className="text-center space-y-4 px-4 py-8">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">William Kim</h2>
           <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-            AI Engineer & Software Engineer — building GPT-powered tools that save hours and scale to thousands.
+            Software Engineer & AI Developer — building GPT-powered apps and full-stack cloud solutions.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Button asChild aria-label="Download resume PDF">
@@ -102,14 +157,13 @@ export default function Portfolio() {
               </a>
             </Button>
             <Button asChild variant="secondary" aria-label="Email William">
-  <a
-    href={`mailto:williamcjk11@gmail.com?subject=${encodeURIComponent(
-      "Recruiter Inquiry — William Kim"
-    )}`}
-  >
-    <Mail className="w-4 h-4 mr-1" /> Email
-  </a>
-</Button>
+              <a
+                href={`mailto:williamcjk11@gmail.com?subject=${encodeURIComponent("Recruiter Inquiry — William Kim")}`}
+                rel="noopener noreferrer"
+              >
+                <Mail className="w-4 h-4 mr-1" /> Email
+              </a>
+            </Button>
           </div>
           <p className="text-sm sm:text-base text-muted-foreground">
             Developer precision, AI engineering, and gymnast-level discipline.
@@ -139,25 +193,49 @@ export default function Portfolio() {
                       <span className="text-xs bg-yellow-300 text-black px-2 py-0.5 rounded-full">Coming Soon</span>
                     )}
                   </h3>
+
                   <p className="text-sm sm:text-base">{project.desc}</p>
                   {project.proof && (
                     <p className="text-xs text-muted-foreground">{project.proof}</p>
                   )}
+
+                  {/* Tech chips */}
+                  {project.tags && (
+                    <ul className="flex flex-wrap gap-2 pt-1">
+                      {project.tags.map((t) => (
+                        <li key={t} className="text-xs px-2 py-0.5 rounded-full border">
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
                   <div className="flex flex-wrap gap-3 pt-1">
-                    {project.live && (
+                    {project.live ? (
                       <Button asChild variant="outline" aria-label={`Open ${project.name} live site`}>
                         <a href={project.live} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4 mr-1" />
                           Live
                         </a>
                       </Button>
+                    ) : (
+                      <Button disabled variant="outline" aria-disabled className="opacity-60 cursor-not-allowed">
+                        <ExternalLink className="w-4 h-4 mr-1" />
+                        Live (coming soon)
+                      </Button>
                     )}
-                    {project.github && (
+
+                    {project.github ? (
                       <Button asChild variant="outline" aria-label={`Open ${project.name} GitHub repo`}>
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
                           <Github className="w-4 h-4 mr-1" />
                           GitHub
                         </a>
+                      </Button>
+                    ) : (
+                      <Button disabled variant="outline" aria-disabled className="opacity-60 cursor-not-allowed">
+                        <Github className="w-4 h-4 mr-1" />
+                        GitHub (private)
                       </Button>
                     )}
                   </div>
@@ -167,14 +245,9 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Resume */}
-<section id="resume" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
-  <div className="flex items-center justify-between gap-3">
-    <h2 className="text-xl sm:text-2xl font-semibold">Resume</h2>
-    <span className="text-xs sm:text-sm text-muted-foreground">Open to Software / AI / Data roles</span>
-  </div>
-
-          {/* Compact, scannable skills */}
+        {/* Highlights (skills / certs / experience summary) */}
+        <section id="highlights" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
+          {/* Key Skills */}
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 list-disc list-inside text-sm">
@@ -184,17 +257,21 @@ export default function Portfolio() {
             </ul>
           </div>
 
+          {/* Certifications */}
           <div className="space-y-2">
-  <h3 className="font-semibold text-sm sm:text-base">Certifications</h3>
-  <ul className="list-disc list-inside text-sm">
-    <li>Data Landscape of GenAI for Project Managers (PMI)</li>
-    <li>Generative AI Overview for Project Managers (PMI)</li>
-    <li>AWS Databricks Platform Architect</li>
-    <li>Generative AI Fundamentals (Databricks)</li>
-    <li>Azure AI (In Progress)</li>
-  </ul>
-</div>
+            <h3 className="font-semibold text-sm sm:text-base">Certifications</h3>
+            <ul className="list-disc list-inside text-sm">
+              <li>Databricks Generative AI Fundamentals</li>
+              <li>Databricks AWS Platform Architect</li>
+              <li>PMI Generative AI Overview for Project Managers</li>
+              <li>PMI Data Landscape of GenAI for Project Managers</li>
+              <li>IBM Cybersecurity Fundamentals</li>
+              <li>IBM Enterprise Design Thinking Practitioner</li>
+              <li>Semrush Become an AI-Powered Marketer</li>
+            </ul>
+          </div>
 
+          {/* Experience Highlights */}
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
             <ul className="list-disc list-inside text-sm">
@@ -212,13 +289,12 @@ export default function Portfolio() {
             <li>
               Email:{" "}
               <a
-  href={`mailto:williamcjk11@gmail.com?subject=${encodeURIComponent(
-    "Recruiter Inquiry — William Kim"
-  )}`}
-  className="text-blue-500 hover:underline"
->
-  williamcjk11@gmail.com
-</a>
+                href={`mailto:williamcjk11@gmail.com?subject=${encodeURIComponent("Recruiter Inquiry — William Kim")}`}
+                className="text-blue-500 hover:underline"
+                rel="noopener noreferrer"
+              >
+                williamcjk11@gmail.com
+              </a>
             </li>
             <li>
               LinkedIn:{" "}
@@ -248,7 +324,7 @@ export default function Portfolio() {
         {/* Footer */}
         <footer className="py-8">
           <p className="text-xs text-muted-foreground text-center">
-            Music: Lost Sky - Fearless pt.II (feat. Chris Linton) [NCS Release] •{" "}
+            © {YEAR} William Kim • Music: Lost Sky - Fearless pt.II (feat. Chris Linton) [NCS Release] •{" "}
             <a href="http://ncs.io/Fearless2" target="_blank" rel="noopener noreferrer" className="underline">
               Free Download
             </a>
