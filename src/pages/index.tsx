@@ -123,7 +123,7 @@ export default function Portfolio() {
         <meta property="og:title" content="William Kim – AI Engineer & Full‑Stack Developer" />
         <meta
           property="og:description"
-          content="AI‑powered apps, Chrome extensions, and cloud‑backed platforms. Python • React/Next.js • React Native • FastAPI • Supabase • AWS • Azure AI • GPT‑4/5"
+          content="AI‑powered apps, Chrome extensions, and cloud‑backed platforms. Python • GPT‑4/5 • React/Next.js • React Native • FastAPI • Supabase • AWS • Azure AI • Docker"
         />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
@@ -163,7 +163,7 @@ export default function Portfolio() {
         <section className="text-center space-y-4 px-4 py-8">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">AI Engineer & Full‑Stack Developer</h2>
           <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-            I build **AI‑powered applications** with LLMs (GPT‑4/5), OCR, and cloud — from mobile apps to Chrome extensions.
+            I build <strong>AI‑powered applications</strong> with LLMs (GPT‑4/5), OCR, and cloud — from mobile apps to Chrome extensions.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Button asChild aria-label="Download resume PDF">
@@ -178,7 +178,7 @@ export default function Portfolio() {
             </Button>
             <Button asChild variant="secondary" aria-label="Email William">
               <a
-                href={`mailto:williamcjk11@gmail.com?subject=${encodeURIComponent("Recruiter Inquiry — William Kim")}`}
+                href="mailto:williamcjk11@gmail.com"
                 rel="noopener noreferrer"
               >
                 <Mail className="w-4 h-4 mr-1" /> Email
@@ -186,7 +186,7 @@ export default function Portfolio() {
             </Button>
           </div>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Python • React/Next.js • React Native • FastAPI • Supabase • AWS • Azure AI • Docker
+            Python • GPT‑4/5 • React/Next.js • React Native • FastAPI • Supabase • AWS • Azure AI • Docker
           </p>
         </section>
 
@@ -273,7 +273,7 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 list-disc list-inside text-sm">
-              <li><b>Core:</b> Python, GPT‑4/5 Integration, OCR (OpenCV/Tesseract)</li>
+              <li><b>Core:</b> Python, GPT‑4/5, OCR (OpenCV/Tesseract)</li>
               <li><b>Cloud:</b> Azure AI, AWS, Supabase, Docker</li>
               <li><b>Frontend:</b> React, Next.js, React Native, Tailwind</li>
             </ul>
@@ -306,7 +306,7 @@ export default function Portfolio() {
             <li>
               Email:{" "}
               <a
-                href={`mailto:williamcjk11@gmail.com?subject=${encodeURIComponent("Recruiter Inquiry — William Kim")}`}
+                href="mailto:williamcjk11@gmail.com"
                 className="text-blue-500 hover:underline"
                 rel="noopener noreferrer"
               >
