@@ -5,7 +5,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Mail, Linkedin, FileDown } from "lucide-react";
+import { Github, ExternalLink, Mail, Linkedin, FileDown, PauseCircle } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Portfolio() {
@@ -13,50 +13,55 @@ export default function Portfolio() {
 
   const projects = [
     {
-      name: "CJ Reflecta",
+      name: "SplitChamp AI",
       desc:
-        "🚧 In Development – AI-powered journaling app for guided self-reflection and emotional growth.",
-      live: null,
-      github: "https://github.com/willckim/cj-reflecta",
-      proof: "Real-time GPT feedback, mood tracking; +75% daily engagement in tests",
-      tags: ["React Native", "Expo", "GPT-5", "AsyncStorage"],
+        "AI bill‑splitting app with Python OCR receipt parsing and GPT‑5 expense classification.",
+      live: null, // add Play Store URL when live
+      github: "https://github.com/willckim/splitchamp-ai",
+      proof: "Play Store prep: feature flags, Free→Pro entitlements, privacy/terms ready",
+      tags: ["Expo/React Native", "Python", "OCR", "GPT‑5"],
+      status: "active",
     },
     {
-      name: "Doyrix",
+      name: "GhostTab AI",
       desc:
-        "🚧 In Development – GPT-powered investing assistant that breaks down earnings calls, 10-Ks, and portfolio insights.",
-      live: null,
-      github: "https://github.com/willckim/doyrix",
-      proof: "<3 min client one-pagers with page-level citations",
-      tags: ["Next.js", "FastAPI", "Supabase", "Stripe", "GPT-5"],
-    },
-    {
-      name: "ExplainAnything.ai",
-      desc:
-        "AI utility that simplifies documents and explains content in any tone or language.",
-      live: "https://explain-anything.vercel.app",
-      github: "https://github.com/willckim/explain-anything-ai",
-      proof: "ELI5 summaries, multilingual output, voice-to-text",
-      tags: ["Next.js", "Supabase", "Tailwind", "GPT-4"],
-    },
-    {
-      name: "GhostTab",
-      desc:
-        "Chrome extension that enforces tab limits and Pomodoro focus modes.",
+        "Chrome extension upgraded with OCR‑based text capture and Azure AI for smart tab limits, study timers, and contextual coaching.",
       live:
         "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
       github: "https://github.com/willckim/ghosttab",
       proof: "Published on Chrome Web Store",
-      tags: ["Chrome Extension", "Productivity", "Focus"],
+      tags: ["Chrome Extension", "OCR", "Azure AI", "GPT‑4/5"],
+      status: "active",
     },
     {
-      name: "ShadowTrack",
+      name: "ExplainAnything.ai",
       desc:
-        "Med-school shadowing log with AI summaries and hour tracking.",
-      live: "https://shadowtrack.vercel.app",
-      github: "https://github.com/willckim/shadowtrack",
-      proof: "AI note summaries; exportable logs",
-      tags: ["Next.js", "Supabase", "AI Summaries"],
+        "AI utility that simplifies documents into ELI5‑style summaries with tone control and multilingual output.",
+      live: "https://explain-anything.vercel.app",
+      github: "https://github.com/willckim/explain-anything-ai",
+      proof: "ELI5 summaries • multilingual output",
+      tags: ["Next.js", "Supabase", "Tailwind", "GPT‑4"],
+      status: "active",
+    },
+    {
+      name: "CJ Reflecta",
+      desc:
+        "⏸ On hold — AI‑powered journaling app for guided self‑reflection and emotional growth.",
+      live: null,
+      github: "https://github.com/willckim/cj-reflecta",
+      proof: "",
+      tags: ["React Native", "Expo", "GPT‑5", "AsyncStorage"],
+      status: "hold",
+    },
+    {
+      name: "Doyrix",
+      desc:
+        "⏸ On hold — GPT‑assisted investing research tool for filings and earnings transcripts.",
+      live: null,
+      github: "https://github.com/willckim/doyrix",
+      proof: "",
+      tags: ["Next.js", "FastAPI", "Supabase", "Stripe", "GPT‑5"],
+      status: "hold",
     },
   ];
 
@@ -67,50 +72,65 @@ export default function Portfolio() {
     url: "https://williamckim.com",
     sameAs: [
       "https://www.linkedin.com/in/william-c-kim/",
-      "https://github.com/willckim"
+      "https://github.com/willckim",
     ],
-    jobTitle: "Software Engineer",
+    jobTitle: "AI Engineer",
     worksFor: { "@type": "Organization", name: "Independent" },
-    knowsAbout: ["AI", "Generative AI", "Full-Stack", "Next.js", "FastAPI", "AWS"],
+    knowsAbout: [
+      "AI Engineering",
+      "LLMs",
+      "OCR",
+      "Azure AI",
+      "Full‑Stack",
+      "Next.js",
+      "React Native",
+      "FastAPI",
+      "AWS",
+    ],
     hasPart: [
       {
-        "@type": "CreativeWork",
-        name: "Doyrix",
-        url: "https://github.com/willckim/doyrix",
-        description: "GPT-powered investing assistant"
+        "@type": "SoftwareApplication",
+        name: "SplitChamp AI",
+        url: "https://github.com/willckim/splitchamp-ai",
+        applicationCategory: "MobileApplication",
+        operatingSystem: "Android/iOS",
       },
       {
-        "@type": "CreativeWork",
-        name: "CJ Reflecta",
-        url: "https://github.com/willckim/cj-reflecta",
-        description: "AI journaling app for reflection"
+        "@type": "SoftwareApplication",
+        name: "GhostTab AI",
+        url: "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
+        applicationCategory: "BrowserExtension",
+        operatingSystem: "Any",
       },
       {
         "@type": "SoftwareApplication",
         name: "ExplainAnything.ai",
         url: "https://explain-anything.vercel.app",
         applicationCategory: "WebApplication",
-        operatingSystem: "Any"
-      }
-    ]
-  };
+        operatingSystem: "Any",
+      },
+    ],
+  } as const;
 
   return (
     <>
       <Head>
-        <title>William Kim – Software Engineer & AI Developer</title>
+        <title>William Kim – AI Engineer & Full‑Stack Developer</title>
         <meta
           name="description"
-          content="William Kim – Software Engineer, AI developer, and national-level gymnast. Explore full-stack projects, GPT apps, and digital tools for focus and wellness."
+          content="William Kim – AI Engineer focused on LLMs, OCR, and cloud. Explore mobile apps, Chrome extensions, and full‑stack projects using GPT‑4/5, Azure AI, Python, and React."
         />
-        <meta property="og:title" content="William Kim – Software Engineer, AI Developer, Gymnast" />
-        <meta property="og:description" content="Check out projects by William Kim: Chrome extensions, AI tools, and apps for focus and wellness." />
+        <meta property="og:title" content="William Kim – AI Engineer & Full‑Stack Developer" />
+        <meta
+          property="og:description"
+          content="AI‑powered apps, Chrome extensions, and cloud‑backed platforms. Python • React/Next.js • React Native • FastAPI • Supabase • AWS • Azure AI • GPT‑4/5"
+        />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://williamckim.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="William Kim – Software Engineer, AI Developer, Gymnast" />
-        <meta name="twitter:description" content="Projects, resume, and background of William Kim." />
+        <meta name="twitter:title" content="William Kim – AI Engineer" />
+        <meta name="twitter:description" content="LLMs, OCR, and cloud at production scale." />
         <meta name="twitter:image" content="/og-image.png" />
         <link rel="canonical" href="https://williamckim.com" />
         <link rel="icon" href="/favicon.ico" />
@@ -141,9 +161,9 @@ export default function Portfolio() {
 
         {/* Hero */}
         <section className="text-center space-y-4 px-4 py-8">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">William Kim</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">AI Engineer & Full‑Stack Developer</h2>
           <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-            Software Engineer & AI Developer — building GPT-powered apps and full-stack cloud solutions.
+            I build **AI‑powered applications** with LLMs (GPT‑4/5), OCR, and cloud — from mobile apps to Chrome extensions.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Button asChild aria-label="Download resume PDF">
@@ -166,7 +186,7 @@ export default function Portfolio() {
             </Button>
           </div>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Developer precision, AI engineering, and gymnast-level discipline.
+            Python • React/Next.js • React Native • FastAPI • Supabase • AWS • Azure AI • Docker
           </p>
         </section>
 
@@ -174,9 +194,9 @@ export default function Portfolio() {
         <section id="about" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
           <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
           <p className="text-sm sm:text-base leading-relaxed">
-            I&apos;m William Kim — a software engineer, AI developer, and national-level gymnast. I build scalable AI-powered
-            tools across web and mobile that enhance focus, wellness, and performance. My work blends technical precision with a
-            human-centered mindset, shaped by my background in athletics and engineering.
+            I’m William Kim — an AI Engineer who ships production apps that blend <strong>LLMs</strong>, <strong>OCR</strong>, and
+            <strong> cloud</strong>. I build end‑to‑end experiences across web and mobile, from UX to backend, with a focus on
+            performance, reliability, and clean design.
           </p>
         </section>
 
@@ -189,8 +209,10 @@ export default function Portfolio() {
                 <CardContent className="space-y-2 p-4">
                   <h3 className="text-lg sm:text-xl font-semibold flex items-center gap-2">
                     {project.name}
-                    {!project.github && (
-                      <span className="text-xs bg-yellow-300 text-black px-2 py-0.5 rounded-full">Coming Soon</span>
+                    {project.status === "hold" && (
+                      <span className="inline-flex items-center gap-1 text-xs bg-yellow-200 text-black px-2 py-0.5 rounded-full">
+                        <PauseCircle className="w-3 h-3" /> On hold
+                      </span>
                     )}
                   </h3>
 
@@ -251,9 +273,9 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 list-disc list-inside text-sm">
-              <li><b>Languages/Frameworks:</b> Python, JS/TS, SQL, React, Next.js, FastAPI, Tailwind</li>
-              <li><b>Data:</b> Pandas, NumPy, Matplotlib, Seaborn, Power BI, Tableau, MySQL</li>
-              <li><b>Cloud:</b> AWS, Supabase, Firebase, Vercel</li>
+              <li><b>Core:</b> Python, GPT‑4/5 Integration, OCR (OpenCV/Tesseract)</li>
+              <li><b>Cloud:</b> Azure AI, AWS, Supabase, Docker</li>
+              <li><b>Frontend:</b> React, Next.js, React Native, Tailwind</li>
             </ul>
           </div>
 
@@ -263,11 +285,6 @@ export default function Portfolio() {
             <ul className="list-disc list-inside text-sm">
               <li>Databricks Generative AI Fundamentals</li>
               <li>Databricks AWS Platform Architect</li>
-              <li>PMI Generative AI Overview for Project Managers</li>
-              <li>PMI Data Landscape of GenAI for Project Managers</li>
-              <li>IBM Cybersecurity Fundamentals</li>
-              <li>IBM Enterprise Design Thinking Practitioner</li>
-              <li>Semrush Become an AI-Powered Marketer</li>
             </ul>
           </div>
 
@@ -275,9 +292,9 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
             <ul className="list-disc list-inside text-sm">
-              <li>Built GPT-powered tools (ExplainAnything.ai, Doyrix) and shipped Chrome extension (GhostTab).</li>
-              <li>Full-stack delivery across Next.js/React Native + Supabase/AWS; real-time auth & analytics.</li>
-              <li>National-level gymnast; 4 AM training discipline applied to engineering execution.</li>
+              <li>Python OCR + LLM integrations (GPT‑4/5, Azure AI) in production apps.</li>
+              <li>Full‑stack delivery: Next.js/React Native + Supabase/AWS; auth, analytics, Stripe billing.</li>
+              <li>Shipped Chrome extension (GhostTab AI); SplitChamp AI prepared for Play Store release.</li>
             </ul>
           </div>
         </section>
