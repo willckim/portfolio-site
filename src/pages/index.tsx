@@ -15,52 +15,53 @@ export default function Portfolio() {
     {
       name: "SplitChamp AI",
       desc:
-        "AI bill‑splitting app with Python OCR receipt parsing and GPT‑5 expense classification.",
+        "AI bill-splitting app with Azure Document Intelligence/Vision + GPT-4o/5 pipelines for receipt parsing and structured expense breakdowns.",
       live: null, // add Play Store URL when live
       github: "https://github.com/willckim/splitchamp-ai",
-      proof: "Play Store prep: feature flags, Free→Pro entitlements, privacy/terms ready",
-      tags: ["Expo/React Native", "Python", "OCR", "GPT‑5"],
+      proof:
+        "Play Store-ready: Expo EAS builds, Pro entitlements via Stripe/RevenueCat, feature flags, in-app legal",
+      tags: ["Expo/React Native", "Python", "FastAPI", "Azure OCR", "GPT-4o/5", "Stripe/RevenueCat"],
       status: "active",
     },
     {
       name: "GhostTab AI",
       desc:
-        "Chrome extension upgraded with OCR‑based text capture and Azure AI for smart tab limits, study timers, and contextual coaching.",
+        "Chrome extension with OCR-based page capture and Azure OpenAI summarization/rewriting, plus adaptive tab limits, Pomodoro timers, and contextual coaching. Roadmap: PyTorch → ONNX classifier (onnxruntime-web) for real-time page categorization.",
       live:
         "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
       github: "https://github.com/willckim/ghosttab",
-      proof: "Published on Chrome Web Store",
-      tags: ["Chrome Extension", "OCR", "Azure AI", "GPT‑4/5"],
+      proof: "Published on Chrome Web Store; Summarizer/Rewriter flows live; ML upgrade in progress",
+      tags: ["Chrome Extension", "Azure OpenAI", "OCR", "GPT-4/5", "Pomodoro", "PyTorch→ONNX (roadmap)"],
       status: "active",
     },
     {
       name: "ExplainAnything.ai",
       desc:
-        "AI utility that simplifies documents into ELI5‑style summaries with tone control and multilingual output.",
+        "Web app that turns complex text into ELI5-style summaries with tone control and multilingual output.",
       live: "https://explain-anything.vercel.app",
       github: "https://github.com/willckim/explain-anything-ai",
-      proof: "ELI5 summaries • multilingual output",
-      tags: ["Next.js", "Supabase", "Tailwind", "GPT‑4"],
+      proof: "ELI5 summaries • tone switching • multilingual",
+      tags: ["Next.js", "Supabase", "Tailwind", "GPT-4"],
       status: "active",
     },
     {
       name: "CJ Reflecta",
       desc:
-        "⏸ On hold — AI‑powered journaling app for guided self‑reflection and emotional growth.",
+        "⏸ On hold — AI-powered journaling app for guided self-reflection and emotional growth.",
       live: null,
       github: "https://github.com/willckim/cj-reflecta",
       proof: "",
-      tags: ["React Native", "Expo", "GPT‑5", "AsyncStorage"],
+      tags: ["React Native", "Expo", "AsyncStorage", "GPT-5"],
       status: "hold",
     },
     {
       name: "Doyrix",
       desc:
-        "⏸ On hold — GPT‑assisted investing research tool for filings and earnings transcripts.",
+        "⏸ On hold — GPT-assisted investing research tool for filings and earnings transcripts.",
       live: null,
       github: "https://github.com/willckim/doyrix",
       proof: "",
-      tags: ["Next.js", "FastAPI", "Supabase", "Stripe", "GPT‑5"],
+      tags: ["Next.js", "FastAPI", "Supabase", "Stripe", "GPT-5"],
       status: "hold",
     },
   ];
@@ -81,11 +82,14 @@ export default function Portfolio() {
       "LLMs",
       "OCR",
       "Azure AI",
-      "Full‑Stack",
+      "PyTorch",
+      "ONNX",
+      "FastAPI",
       "Next.js",
       "React Native",
-      "FastAPI",
       "AWS",
+      "Supabase",
+      "Docker"
     ],
     hasPart: [
       {
@@ -115,22 +119,22 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>William Kim – AI Engineer & Full‑Stack Developer</title>
+        <title>William Kim – AI Engineer & Full-Stack Developer</title>
         <meta
           name="description"
-          content="William Kim – AI Engineer focused on LLMs, OCR, and cloud. Explore mobile apps, Chrome extensions, and full‑stack projects using GPT‑4/5, Azure AI, Python, and React."
+          content="AI Engineer shipping LLM + OCR products. GhostTab AI (Chrome), SplitChamp AI (mobile), ExplainAnything.ai (web). Python • PyTorch • GPT-4/5 • Azure AI • FastAPI • React/React Native • AWS/Supabase."
         />
-        <meta property="og:title" content="William Kim – AI Engineer & Full‑Stack Developer" />
+        <meta property="og:title" content="William Kim – AI Engineer & Full-Stack Developer" />
         <meta
           property="og:description"
-          content="AI‑powered apps, Chrome extensions, and cloud‑backed platforms. Python • GPT‑4/5 • React/Next.js • React Native • FastAPI • Supabase • AWS • Azure AI • Docker"
+          content="Production AI apps with LLMs, OCR, and cloud — including PyTorch→ONNX roadmap for client-side ML."
         />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://williamckim.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="William Kim – AI Engineer" />
-        <meta name="twitter:description" content="LLMs, OCR, and cloud at production scale." />
+        <meta name="twitter:description" content="LLMs • OCR • Cloud • PyTorch→ONNX roadmap." />
         <meta name="twitter:image" content="/og-image.png" />
         <link rel="canonical" href="https://williamckim.com" />
         <link rel="icon" href="/favicon.ico" />
@@ -161,9 +165,9 @@ export default function Portfolio() {
 
         {/* Hero */}
         <section className="text-center space-y-4 px-4 py-8">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">AI Engineer & Full‑Stack Developer</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">AI Engineer & Full-Stack Developer</h2>
           <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-            I build <strong>AI‑powered applications</strong> with LLMs (GPT‑4/5), OCR, and cloud — from mobile apps to Chrome extensions.
+            I build <strong>AI-powered applications</strong> with LLMs (GPT-4/5), OCR, and cloud — from mobile apps to Chrome extensions.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Button asChild aria-label="Download resume PDF">
@@ -186,7 +190,7 @@ export default function Portfolio() {
             </Button>
           </div>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Python • GPT‑4/5 • React/Next.js • React Native • FastAPI • Supabase • AWS • Azure AI • Docker
+            Python • PyTorch • GPT-4/5 • OCR (OpenCV/Tesseract) • FastAPI • React/Next.js • React Native • Azure AI • AWS/Supabase • Docker
           </p>
         </section>
 
@@ -195,8 +199,8 @@ export default function Portfolio() {
           <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
           <p className="text-sm sm:text-base leading-relaxed">
             I’m William Kim — an AI Engineer who ships production apps that blend <strong>LLMs</strong>, <strong>OCR</strong>, and
-            <strong> cloud</strong>. I build end‑to‑end experiences across web and mobile, from UX to backend, with a focus on
-            performance, reliability, and clean design.
+            <strong> cloud</strong>. I build end-to-end experiences across web and mobile, from UX to backend, with a focus on
+            performance, reliability, and clean design. Current roadmap: <strong>PyTorch → ONNX</strong> for client-side ML in GhostTab AI.
           </p>
         </section>
 
@@ -273,9 +277,12 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 list-disc list-inside text-sm">
-              <li><b>Core:</b> Python, GPT‑4/5, OCR (OpenCV/Tesseract)</li>
-              <li><b>Cloud:</b> Azure AI, AWS, Supabase, Docker</li>
+              <li><b>AI:</b> Python, PyTorch, GPT-4/5</li>
+              <li><b>Vision/OCR:</b> Azure DI/Vision, OpenCV/Tesseract</li>
+              <li><b>Backend:</b> FastAPI, Supabase, Docker</li>
+              <li><b>Cloud:</b> Azure, AWS</li>
               <li><b>Frontend:</b> React, Next.js, React Native, Tailwind</li>
+              <li><b>Roadmap:</b> ONNX + onnxruntime-web</li>
             </ul>
           </div>
 
@@ -285,6 +292,7 @@ export default function Portfolio() {
             <ul className="list-disc list-inside text-sm">
               <li>Databricks Generative AI Fundamentals</li>
               <li>Databricks AWS Platform Architect</li>
+              <li>Azure AI Engineer Associate <i>(in progress)</i></li>
             </ul>
           </div>
 
@@ -292,8 +300,8 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
             <ul className="list-disc list-inside text-sm">
-              <li>Python OCR + LLM integrations (GPT‑4/5, Azure AI) in production apps.</li>
-              <li>Full‑stack delivery: Next.js/React Native + Supabase/AWS; auth, analytics, Stripe billing.</li>
+              <li>Python OCR + LLM integrations (GPT-4/5, Azure AI) in production apps.</li>
+              <li>Full-stack delivery: Next.js/React Native + Supabase/AWS; auth, analytics, Stripe billing.</li>
               <li>Shipped Chrome extension (GhostTab AI); SplitChamp AI prepared for Play Store release.</li>
             </ul>
           </div>
