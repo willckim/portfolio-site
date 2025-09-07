@@ -26,12 +26,18 @@ export default function Portfolio() {
     {
       name: "GhostTab AI",
       desc:
-        "Chrome extension with OCR-based page capture and Azure OpenAI summarization/rewriting, plus adaptive tab limits, Pomodoro timers, and contextual coaching. Roadmap: PyTorch → ONNX classifier (onnxruntime-web) for real-time page categorization.",
-      live:
-        "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
-      github: "https://github.com/willckim/Ghosttab-AI", // updated GitHub repo
-      proof: "Published on Chrome Web Store; Summarizer/Rewriter flows live; ML upgrade in progress",
-      tags: ["Chrome Extension", "Azure OpenAI", "OCR", "GPT-4/5", "Pomodoro", "PyTorch→ONNX (roadmap)"],
+      "Chrome extension with OCR-based page capture, Azure OpenAI summarization/rewriting, adaptive tab limits, Pomodoro timers, and contextual coaching. Includes PyTorch → ONNX classifier (onnxruntime-web) for real-time page categorization.",
+      live: "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
+      github: "https://github.com/willckim/Ghosttab-AI",
+      proof: "Published on Chrome Web Store; Summarizer/Rewriter flows + ONNX classifier live",
+      tags: [
+        "Chrome Extension",
+        "Azure OpenAI",
+        "OCR",
+        "GPT-4/5",
+        "Pomodoro",
+        "PyTorch→ONNX",
+      ],
       status: "active",
     },
     {
