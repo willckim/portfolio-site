@@ -16,7 +16,7 @@ export default function Portfolio() {
       name: "SplitChamp AI",
       desc:
         "AI bill-splitting app with Azure Document Intelligence/Vision + GPT-4o/5 pipelines for receipt parsing and structured expense breakdowns.",
-      live: null, // add Play Store URL when live
+      live: "https://play.google.com/apps/testing/com.willckim.splitchamp", // Play Store testing link
       github: "https://github.com/willckim/splitchamp-ai",
       proof:
         "Play Store-ready: Expo EAS builds, Pro entitlements via Stripe/RevenueCat, feature flags, in-app legal",
@@ -29,7 +29,7 @@ export default function Portfolio() {
         "Chrome extension with OCR-based page capture and Azure OpenAI summarization/rewriting, plus adaptive tab limits, Pomodoro timers, and contextual coaching. Roadmap: PyTorch → ONNX classifier (onnxruntime-web) for real-time page categorization.",
       live:
         "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
-      github: "https://github.com/willckim/ghosttab",
+      github: "https://github.com/willckim/Ghosttab-AI", // updated GitHub repo
       proof: "Published on Chrome Web Store; Summarizer/Rewriter flows live; ML upgrade in progress",
       tags: ["Chrome Extension", "Azure OpenAI", "OCR", "GPT-4/5", "Pomodoro", "PyTorch→ONNX (roadmap)"],
       status: "active",
@@ -95,7 +95,7 @@ export default function Portfolio() {
       {
         "@type": "SoftwareApplication",
         name: "SplitChamp AI",
-        url: "https://github.com/willckim/splitchamp-ai",
+        url: "https://play.google.com/apps/testing/com.willckim.splitchamp",
         applicationCategory: "MobileApplication",
         operatingSystem: "Android/iOS",
       },
