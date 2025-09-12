@@ -26,8 +26,8 @@ export default function Portfolio() {
     {
       name: "GhostTab AI",
       desc:
-      "Chrome extension with OCR-based page capture, Azure OpenAI summarization/rewriting, adaptive tab limits, Pomodoro timers, and contextual coaching. Includes PyTorch → ONNX classifier (onnxruntime-web) for real-time page categorization.",
-      live: "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
+        "Chrome extension with OCR-based page capture, Azure OpenAI summarization/rewriting, adaptive tab limits, Pomodoro timers, and contextual coaching. Includes PyTorch → ONNX classifier (onnxruntime-web) for real-time page categorization.",
+      live: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", // ✅ updated link
       github: "https://github.com/willckim/Ghosttab-AI",
       proof: "Published on Chrome Web Store; Summarizer/Rewriter flows + ONNX classifier live",
       tags: [
@@ -80,6 +80,8 @@ export default function Portfolio() {
     sameAs: [
       "https://www.linkedin.com/in/william-c-kim/",
       "https://github.com/willckim",
+      "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", // ✅ added here too
+      "https://play.google.com/apps/testing/com.willckim.splitchamp"
     ],
     jobTitle: "AI Engineer",
     worksFor: { "@type": "Organization", name: "Independent" },
@@ -108,7 +110,7 @@ export default function Portfolio() {
       {
         "@type": "SoftwareApplication",
         name: "GhostTab AI",
-        url: "https://chromewebstore.google.com/detail/ghosttab/hbjipanckkfgcooblddagommcmklnija",
+        url: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", // ✅ updated
         applicationCategory: "BrowserExtension",
         operatingSystem: "Any",
       },
@@ -178,7 +180,7 @@ export default function Portfolio() {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Button asChild aria-label="Download resume PDF">
               <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
-                <FileDown className="w-4 h-4 mr-1" /> View Resume
+                <FileDown className="w-4 h-4 mr-1" /> Download Resume (PDF)
               </a>
             </Button>
             <Button asChild variant="outline" aria-label="Open LinkedIn profile">
