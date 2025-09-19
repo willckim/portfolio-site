@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import Head from "next/head";
@@ -12,6 +12,17 @@ export default function Portfolio() {
   const YEAR = new Date().getFullYear();
 
   const projects = [
+    {
+      name: "KPIFlow AI",
+      desc:
+        "Self-serve KPI dashboards from CSV/SQL with automated insights. Streamlit front-end with Python (pandas), metrics definitions, and exportable visuals.",
+      live: "https://kpiflow-ai.streamlit.app/",
+      github: "https://github.com/willckim/kpiflow-ai",
+      proof:
+        "Automated KPI cards, trend charts, CSV → insights; built for analyst-style storytelling and quick stakeholder share-outs",
+      tags: ["Python", "Pandas", "Streamlit", "Plotly", "CSV→Dashboard", "Insights"],
+      status: "active",
+    },
     {
       name: "SplitChamp AI",
       desc:
@@ -27,7 +38,7 @@ export default function Portfolio() {
       name: "GhostTab AI",
       desc:
         "Chrome extension with OCR-based page capture, Azure OpenAI summarization/rewriting, adaptive tab limits, Pomodoro timers, and contextual coaching. Includes PyTorch → ONNX classifier (onnxruntime-web) for real-time page categorization.",
-      live: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", // ✅ updated link
+      live: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
       github: "https://github.com/willckim/Ghosttab-AI",
       proof: "Published on Chrome Web Store; Summarizer/Rewriter flows + ONNX classifier live",
       tags: [
@@ -80,26 +91,37 @@ export default function Portfolio() {
     sameAs: [
       "https://www.linkedin.com/in/william-c-kim/",
       "https://github.com/willckim",
-      "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", // ✅ added here too
-      "https://play.google.com/apps/testing/com.willckim.splitchamp"
+      "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
+      "https://play.google.com/apps/testing/com.willckim.splitchamp",
+      "https://kpiflow-ai.streamlit.app/"
     ],
-    jobTitle: "AI Engineer",
+    jobTitle: "Data/Business Analyst · AI Engineer",
     worksFor: { "@type": "Organization", name: "Independent" },
     knowsAbout: [
-      "AI Engineering",
+      "SQL",
+      "Python (pandas, numpy)",
+      "Data Visualization",
+      "KPIs & Metrics",
+      "A/B Testing & Experimentation",
+      "Forecasting",
+      "ETL",
       "LLMs",
       "OCR",
       "Azure AI",
-      "PyTorch",
-      "ONNX",
       "FastAPI",
       "Next.js",
       "React Native",
-      "AWS",
       "Supabase",
       "Docker"
     ],
     hasPart: [
+      {
+        "@type": "SoftwareApplication",
+        name: "KPIFlow AI",
+        url: "https://kpiflow-ai.streamlit.app/",
+        applicationCategory: "WebApplication",
+        operatingSystem: "Any",
+      },
       {
         "@type": "SoftwareApplication",
         name: "SplitChamp AI",
@@ -110,7 +132,7 @@ export default function Portfolio() {
       {
         "@type": "SoftwareApplication",
         name: "GhostTab AI",
-        url: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", // ✅ updated
+        url: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
         applicationCategory: "BrowserExtension",
         operatingSystem: "Any",
       },
@@ -127,22 +149,22 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>William Kim – AI Engineer & Full-Stack Developer</title>
+        <title>William Kim – Data/Business Analyst (AI‑Savvy)</title>
         <meta
           name="description"
-          content="AI Engineer shipping LLM + OCR products. GhostTab AI (Chrome), SplitChamp AI (mobile), ExplainAnything.ai (web). Python • PyTorch • GPT-4/5 • Azure AI • FastAPI • React/React Native • AWS/Supabase."
+          content="Data/Business Analyst who builds KPI dashboards, SQL/Python pipelines, and clear data stories. Projects: KPIFlow AI (Streamlit), GhostTab AI (Chrome), SplitChamp AI (mobile)."
         />
-        <meta property="og:title" content="William Kim – AI Engineer & Full-Stack Developer" />
+        <meta property="og:title" content="William Kim – Data/Business Analyst (AI‑Savvy)" />
         <meta
           property="og:description"
-          content="Production AI apps with LLMs, OCR, and cloud — including PyTorch→ONNX roadmap for client-side ML."
+          content="SQL • Python (pandas) • KPI design • dashboards • experimentation • plus production AI apps with LLMs/OCR."
         />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://williamckim.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="William Kim – AI Engineer" />
-        <meta name="twitter:description" content="LLMs • OCR • Cloud • PyTorch→ONNX roadmap." />
+        <meta name="twitter:title" content="William Kim – Data/Business Analyst" />
+        <meta name="twitter:description" content="SQL • Python • KPIs • dashboards • A/B testing • forecasting." />
         <meta name="twitter:image" content="/og-image.png" />
         <link rel="canonical" href="https://williamckim.com" />
         <link rel="icon" href="/favicon.ico" />
@@ -173,9 +195,9 @@ export default function Portfolio() {
 
         {/* Hero */}
         <section className="text-center space-y-4 px-4 py-8">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">AI Engineer & Full-Stack Developer</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">Data/Business Analyst</h2>
           <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-            I build <strong>AI-powered applications</strong> with LLMs (GPT-4/5), OCR, and cloud — from mobile apps to Chrome extensions.
+            I turn messy data into <strong>clear KPIs, dashboards, and decisions</strong>. SQL + Python (pandas) for prep, Streamlit/BI for delivery, and AI where it adds leverage.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Button asChild aria-label="Download resume PDF">
@@ -198,7 +220,7 @@ export default function Portfolio() {
             </Button>
           </div>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Python • PyTorch • GPT-4/5 • OCR (OpenCV/Tesseract) • FastAPI • React/Next.js • React Native • Azure AI • AWS/Supabase • Docker
+            SQL • Python (pandas, numpy) • Data Cleaning • KPI Design • Visualization (Streamlit/Plotly) • A/B Testing • Forecasting • LLMs/OCR (practical)
           </p>
         </section>
 
@@ -206,9 +228,7 @@ export default function Portfolio() {
         <section id="about" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
           <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
           <p className="text-sm sm:text-base leading-relaxed">
-            I’m William Kim — an AI Engineer who ships production apps that blend <strong>LLMs</strong>, <strong>OCR</strong>, and
-            <strong> cloud</strong>. I build end-to-end experiences across web and mobile, from UX to backend, with a focus on
-            performance, reliability, and clean design. Current roadmap: <strong>PyTorch → ONNX</strong> for client-side ML in GhostTab AI.
+            I’m William Kim — a data‑driven builder who delivers <strong>analyst outcomes</strong> (useful KPIs, clear dashboards, crisp narratives). I work across the stack when needed (SQL/Python → visuals), and I’m comfortable adding <strong>AI/LLM</strong> pieces where they reduce time‑to‑insight. Recent work includes <strong>KPIFlow AI</strong> for one‑click dashboards and <strong>receipt → structured spend</strong> pipelines in SplitChamp AI.
           </p>
         </section>
 
@@ -285,12 +305,12 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Key Skills</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 list-disc list-inside text-sm">
-              <li><b>AI:</b> Python, PyTorch, GPT-4/5</li>
-              <li><b>Vision/OCR:</b> Azure DI/Vision, OpenCV/Tesseract</li>
-              <li><b>Backend:</b> FastAPI, Supabase, Docker</li>
-              <li><b>Cloud:</b> Azure, AWS</li>
-              <li><b>Frontend:</b> React, Next.js, React Native, Tailwind</li>
-              <li><b>Roadmap:</b> ONNX + onnxruntime-web</li>
+              <li><b>Data:</b> SQL, Python (pandas)</li>
+              <li><b>Viz/Apps:</b> Streamlit, Plotly</li>
+              <li><b>KPIs:</b> Metric design, dashboards</li>
+              <li><b>Analysis:</b> A/B testing, forecasting</li>
+              <li><b>Ops:</b> ETL basics, Supabase</li>
+              <li><b>AI add‑ons:</b> LLMs, OCR</li>
             </ul>
           </div>
 
@@ -308,9 +328,9 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm sm:text-base">Experience Highlights</h3>
             <ul className="list-disc list-inside text-sm">
-              <li>Python OCR + LLM integrations (GPT-4/5, Azure AI) in production apps.</li>
-              <li>Full-stack delivery: Next.js/React Native + Supabase/AWS; auth, analytics, Stripe billing.</li>
-              <li>Shipped Chrome extension (GhostTab AI); SplitChamp AI prepared for Play Store release.</li>
+              <li>Built <b>KPIFlow AI</b>: CSV/SQL → KPI dashboards + automated insights (Streamlit, Python).</li>
+              <li>Python OCR + LLM integrations (GPT‑4/5, Azure AI) in production apps.</li>
+              <li>Full‑stack delivery when needed: Next.js/React Native + Supabase/AWS; auth, analytics, Stripe billing.</li>
             </ul>
           </div>
         </section>
