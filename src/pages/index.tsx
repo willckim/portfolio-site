@@ -14,6 +14,17 @@ export default function Portfolio() {
   // --- PROJECTS --------------------------------------------------------------
   const projects = [
     {
+      name: "FP&A AI Dashboard",
+      desc:
+        "AI-powered Financial Planning & Analysis project: variance analysis, department-level forecasting, and automated executive summaries with exportable CSVs/PPTX.",
+      live: null,
+      github: "https://github.com/willckim/fpna-ai-dashboard",
+      proof:
+        "Pandas/SQL variance pipeline, statsmodels forecasts (3–6 mo), rule-based + OpenAI/Azure OpenAI summaries, Power BI-ready outputs.",
+      tags: ["Python", "Pandas", "Statsmodels", "OpenAI/Azure OpenAI", "Power BI", "Forecasting"],
+      status: "active",
+    },
+    {
       name: "Snowflake + Power BI Analytics",
       desc:
         "End-to-end sales analytics: Snowflake SQL data modeling + Power BI dashboard with KPI cards, trends, top products, and category breakdowns.",
@@ -102,6 +113,7 @@ export default function Portfolio() {
       "https://kpiflow-ai.streamlit.app/",
       "https://github.com/willckim/snowflake-powerbi-sales-dashboard",
       "https://app.snowflake.com/zmydbpf/fq34862/w3u0HWZNPryg/query",
+      "https://github.com/willckim/fpna-ai-dashboard"
     ],
     jobTitle: "Data/Business Analyst",
     worksFor: { "@type": "Organization", name: "Independent" },
@@ -124,6 +136,13 @@ export default function Portfolio() {
       "Docker",
     ],
     hasPart: [
+      {
+        "@type": "SoftwareApplication",
+        name: "FP&A AI Dashboard",
+        url: "https://github.com/willckim/fpna-ai-dashboard",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Any",
+      },
       {
         "@type": "SoftwareApplication",
         name: "Snowflake + Power BI Analytics",
@@ -168,7 +187,7 @@ export default function Portfolio() {
         <title>William Kim – Data/Business Analyst</title>
         <meta
           name="description"
-          content="Data/Business Analyst who builds clear KPIs, SQL/Python pipelines, and Power BI dashboards that drive decisions. Case studies include Snowflake + Power BI sales analytics."
+          content="Data/Business Analyst who builds clear KPIs, SQL/Python pipelines, and Power BI dashboards that drive decisions. Case studies include FP&A AI Dashboard and Snowflake + Power BI sales analytics."
         />
         <meta property="og:title" content="William Kim – Data/Business Analyst" />
         <meta
@@ -244,7 +263,7 @@ export default function Portfolio() {
         <section id="about" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
           <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
           <p className="text-sm sm:text-base leading-relaxed">
-            I’m William Kim — a data-driven builder who delivers <strong>analyst outcomes</strong>: trustworthy KPIs, clear dashboards, and crisp narratives tied to business goals. I work across the stack when needed (SQL/Python → BI), and I’m comfortable adding <strong>AI/LLM</strong> pieces where they reduce time-to-insight. Recent work includes a <strong>Snowflake + Power BI sales dashboard</strong> and <strong>KPIFlow AI</strong> for one-click KPI views from CSV/SQL.
+            I’m William Kim — a data-driven builder who delivers <strong>analyst outcomes</strong>: trustworthy KPIs, clear dashboards, and crisp narratives tied to business goals. I work across the stack when needed (SQL/Python → BI), and I’m comfortable adding <strong>AI/LLM</strong> pieces where they reduce time-to-insight. Recent work includes an <strong>FP&A AI Dashboard</strong>, a <strong>Snowflake + Power BI sales dashboard</strong>, and <strong>KPIFlow AI</strong> for one-click KPI views from CSV/SQL.
           </p>
         </section>
 
