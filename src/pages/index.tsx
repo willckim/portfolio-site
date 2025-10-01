@@ -29,6 +29,8 @@ export default function Portfolio() {
         "Deployed: Render (API) + Vercel (frontend) behind secure proxy.",
         "Embeddings + scalable search + modular orchestration for enterprise extensibility.",
       ],
+      // Impact badges (keep concise, numeric where possible)
+      metrics: [], // no hard metrics to badge here
     },
     // 2) Mobile OCR + LLM — SECOND
     {
@@ -46,6 +48,7 @@ export default function Portfolio() {
         "Post-processing (dedupe, heuristics, tax/tip) → F1 +20%.",
         "Expo EAS CI/CD → release time 2 days → 2 hours.",
       ],
+      metrics: ["F1 +20%", "2h releases", "95%+ accuracy"],
     },
     // 3) Shipped extension + ONNX — THIRD
     {
@@ -62,6 +65,7 @@ export default function Portfolio() {
         "Adaptive tab limits + Pomodoro timers + coaching UX.",
         "On-device ONNX classifier (onnxruntime-web).",
       ],
+      metrics: [], // no explicit numeric metrics to badge
     },
     // 4) Finance modeling + LLMs — FOURTH
     {
@@ -79,6 +83,7 @@ export default function Portfolio() {
         "Bridges technical + business stakeholders via numeric rigor + narrative outputs.",
         "Cut financial model iteration cycles by ~40%, accelerating decisions.",
       ],
+      metrics: ["-40% iteration time"],
     },
     // 5) Operator-facing FP&A — FIFTH
     {
@@ -96,6 +101,7 @@ export default function Portfolio() {
         "Rule-based + LLM summaries for exec-ready briefs.",
         "Exports: CSVs/PPTX for finance workflows.",
       ],
+      metrics: ["3–6 mo forecasts"],
     },
     // 6) Analyst stack + BI storytelling — SIXTH
     {
@@ -113,6 +119,7 @@ export default function Portfolio() {
         "Power BI KPIs: Total Sales, Orders, AOV; top customers/products.",
         "Transparent, auditable metric definitions for governance.",
       ],
+      metrics: [], // could add metrics if you have numbers (e.g., refresh time, coverage %)
     },
     // 7) Self-serve KPIs — SEVENTH
     {
@@ -130,6 +137,7 @@ export default function Portfolio() {
         "Analyst-style insights generation for faster narratives.",
         "Exportable visuals for quick stakeholder share-outs.",
       ],
+      metrics: [], // add later if you quantify time saved, etc.
     },
     // 8) Lighter demo — EIGHTH
     {
@@ -146,6 +154,7 @@ export default function Portfolio() {
         "Multilingual outputs for global audiences.",
         "Lightweight Next.js stack with Supabase.",
       ],
+      metrics: [],
     },
   ] as const;
 
@@ -273,16 +282,31 @@ export default function Portfolio() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="max-w-5xl mx-auto space-y-2 px-4 py-6">
+        <section id="projects" className="max-w-5xl mx-auto space-y-6 px-4 py-6">
           <h2 className="text-xl sm:text-2xl font-semibold">Projects & Case Studies</h2>
-          <p className="text-xs text-muted-foreground">
-            If you want to go even harder for recruiter scanning, I can add tiny, subtle “impact badges” next to the key metrics in each card (e.g., F1 +20%, 2h releases, -40% iteration time).
-          </p>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 pt-2">
             {projects.map((project) => (
               <Card key={project.name} className="hover:shadow-md transition-shadow">
                 <CardContent className="space-y-2 p-4">
-                  <h3 className="text-lg sm:text-xl font-semibold">{project.name}</h3>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg sm:text-xl font-semibold">{project.name}</h3>
+                  </div>
+
+                  {/* Impact badges (subtle) */}
+                  {project.metrics && project.metrics.length > 0 && (
+                    <ul className="flex flex-wrap gap-2">
+                      {project.metrics.map((m, i) => (
+                        <li
+                          key={i}
+                          className="text-[11px] px-2 py-0.5 rounded-full bg-muted border text-foreground/80"
+                          aria-label={`Impact: ${m}`}
+                          title={m}
+                        >
+                          {m}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
                   <p className="text-sm sm:text-base">{project.desc}</p>
                   {project.proof && (
