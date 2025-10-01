@@ -13,7 +13,7 @@ export default function Portfolio() {
 
   // --- PROJECTS --------------------------------------------------------------
   const projects = [
-    // 1) AI Research Copilot — FIRST
+    // 1) Enterprise RAG — FIRST
     {
       name: "AI Research Copilot (Enterprise-Ready Doc-Chat)",
       desc:
@@ -30,7 +30,7 @@ export default function Portfolio() {
         "Embeddings + scalable search + modular orchestration for enterprise extensibility.",
       ],
     },
-    // 2) SplitChamp — SECOND
+    // 2) Mobile OCR + LLM — SECOND
     {
       name: "SplitChamp AI",
       desc:
@@ -47,7 +47,7 @@ export default function Portfolio() {
         "Expo EAS CI/CD → release time 2 days → 2 hours.",
       ],
     },
-    // 3) GhostTab — THIRD
+    // 3) Shipped extension + ONNX — THIRD
     {
       name: "GhostTab AI",
       desc:
@@ -63,7 +63,24 @@ export default function Portfolio() {
         "On-device ONNX classifier (onnxruntime-web).",
       ],
     },
-    // Remaining projects (order preserved but after the top three)
+    // 4) Finance modeling + LLMs — FOURTH
+    {
+      name: "AI Financial Scenarios",
+      desc:
+        "AI-powered financial scenario generator: upload company historicals, tweak assumptions, and generate CFO-style forecasts with executive summaries.",
+      live: null,
+      github: "https://github.com/willckim/ai-financial-scenarios",
+      proof:
+        "FastAPI backend + Next.js frontend; pandas/SQL pipelines for forecasts, LLM summaries (Claude/OpenAI); exportable CSV outputs.",
+      tags: ["Claude", "OpenAI", "Python", "FastAPI", "Next.js", "Finance"],
+      status: "active",
+      bullets: [
+        "Scenario-based forecasts, valuations, and sensitivities.",
+        "Bridges technical + business stakeholders via numeric rigor + narrative outputs.",
+        "Cut financial model iteration cycles by ~40%, accelerating decisions.",
+      ],
+    },
+    // 5) Operator-facing FP&A — FIFTH
     {
       name: "FP&A AI Dashboard",
       desc:
@@ -80,22 +97,7 @@ export default function Portfolio() {
         "Exports: CSVs/PPTX for finance workflows.",
       ],
     },
-    {
-      name: "KPIFlow AI",
-      desc:
-        "Self-serve KPI dashboards from CSV/SQL with automated insights. Streamlit front-end with pandas and exportable visuals.",
-      live: "https://kpiflow-ai.streamlit.app/",
-      github: "https://github.com/willckim/kpiflow-ai",
-      proof:
-        "Automated KPI cards, trend charts, CSV → insights; built for analyst-style storytelling and share-outs.",
-      tags: ["Python", "Pandas", "Streamlit", "Plotly", "CSV→Dashboard", "Insights"],
-      status: "active",
-      bullets: [
-        "CSV/SQL ingestion → KPI cards + trends automatically.",
-        "Analyst-style insights generation for faster narratives.",
-        "Exportable visuals for quick stakeholder share-outs.",
-      ],
-    },
+    // 6) Analyst stack + BI storytelling — SIXTH
     {
       name: "Snowflake + Power BI Analytics",
       desc:
@@ -112,6 +114,24 @@ export default function Portfolio() {
         "Transparent, auditable metric definitions for governance.",
       ],
     },
+    // 7) Self-serve KPIs — SEVENTH
+    {
+      name: "KPIFlow AI",
+      desc:
+        "Self-serve KPI dashboards from CSV/SQL with automated insights. Streamlit front-end with pandas and exportable visuals.",
+      live: "https://kpiflow-ai.streamlit.app/",
+      github: "https://github.com/willckim/kpiflow-ai",
+      proof:
+        "Automated KPI cards, trend charts, CSV → insights; built for analyst-style storytelling and share-outs.",
+      tags: ["Python", "Pandas", "Streamlit", "Plotly", "CSV→Dashboard", "Insights"],
+      status: "active",
+      bullets: [
+        "CSV/SQL ingestion → KPI cards + trends automatically.",
+        "Analyst-style insights generation for faster narratives.",
+        "Exportable visuals for quick stakeholder share-outs.",
+      ],
+    },
+    // 8) Lighter demo — EIGHTH
     {
       name: "ExplainAnything.ai",
       desc:
@@ -127,23 +147,6 @@ export default function Portfolio() {
         "Lightweight Next.js stack with Supabase.",
       ],
     },
-    // Optional: keep this if you want it listed; otherwise remove it.
-    {
-      name: "Claude AI Financial Modeling Assistant",
-      desc:
-        "Scenario-based forecasts, valuations, and sensitivities with natural-language explanations that bridge technical and business teams.",
-      live: null,
-      github: null,
-      proof:
-        "Reduced model iteration cycles by ~40% via structured numeric reasoning + narrative outputs.",
-      tags: ["Claude", "LLM Tooling", "Finance", "Python"],
-      status: "active",
-      bullets: [
-        "Scenario forecasting + valuation + sensitivity workflows.",
-        "Bridges stakeholders with numeric rigor + narrative clarity.",
-        "Iteration cycle time ↓ ~40%.",
-      ],
-    },
   ] as const;
 
   // --- SCHEMA.ORG ------------------------------------------------------------
@@ -157,6 +160,7 @@ export default function Portfolio() {
       "https://github.com/willckim",
       "https://www.ai-research-copilot.com/",
       "https://github.com/willckim/ai-research-copilot",
+      "https://github.com/willckim/ai-financial-scenarios",
       "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
       "https://play.google.com/apps/testing/com.willckim.splitchamp",
       "https://kpiflow-ai.streamlit.app/",
@@ -175,6 +179,7 @@ export default function Portfolio() {
       { "@type": "SoftwareApplication", name: "AI Research Copilot", url: "https://www.ai-research-copilot.com/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "SplitChamp AI", url: "https://play.google.com/apps/testing/com.willckim.splitchamp", applicationCategory: "MobileApplication", operatingSystem: "Android/iOS" },
       { "@type": "SoftwareApplication", name: "GhostTab AI", url: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", applicationCategory: "BrowserExtension", operatingSystem: "Any" },
+      { "@type": "SoftwareApplication", name: "AI Financial Scenarios", url: "https://github.com/willckim/ai-financial-scenarios", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "FP&A AI Dashboard", url: "https://github.com/willckim/fpna-ai-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "KPIFlow AI", url: "https://kpiflow-ai.streamlit.app/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "Snowflake + Power BI Analytics", url: "https://github.com/willckim/snowflake-powerbi-sales-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" }
@@ -268,9 +273,12 @@ export default function Portfolio() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="max-w-5xl mx-auto space-y-6 px-4 py-6">
+        <section id="projects" className="max-w-5xl mx-auto space-y-2 px-4 py-6">
           <h2 className="text-xl sm:text-2xl font-semibold">Projects & Case Studies</h2>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+          <p className="text-xs text-muted-foreground">
+            If you want to go even harder for recruiter scanning, I can add tiny, subtle “impact badges” next to the key metrics in each card (e.g., F1 +20%, 2h releases, -40% iteration time).
+          </p>
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 pt-4">
             {projects.map((project) => (
               <Card key={project.name} className="hover:shadow-md transition-shadow">
                 <CardContent className="space-y-2 p-4">
