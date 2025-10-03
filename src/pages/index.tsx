@@ -66,7 +66,25 @@ export default function Portfolio() {
       ],
       metrics: [],
     },
-    // 4) Finance modeling + LLMs — FOURTH
+    // 4) Domain FT — FOURTH (new)
+    {
+      name: "Domain FT for LLMs",
+      desc:
+        "Domain-focused fine-tuning experiments for LLMs: training/evaluation workflows aimed at adapting general models to specialized corpora.",
+      live: null,
+      github: "https://github.com/willckim/domain-ft-llm",
+      proof:
+        "Repository with code/configs for domain adaptation runs and notes on evaluation approaches.",
+      tags: ["LLM", "Fine-tuning", "Evaluation", "Python"],
+      status: "active",
+      bullets: [
+        "Explores domain adaptation strategies to improve task performance on specialized datasets.",
+        "Organized training/eval workflows with clear configs for reproducibility.",
+        "Focus on practical trade-offs between data curation, cost, and quality.",
+      ],
+      metrics: [], // add measurable gains later if you benchmark
+    },
+    // 5) Finance modeling + LLMs — FIFTH
     {
       name: "AI Financial Scenarios",
       desc:
@@ -84,7 +102,7 @@ export default function Portfolio() {
       ],
       metrics: ["-40% iteration time"],
     },
-    // 5) Operator-facing FP&A — FIFTH
+    // 6) Operator-facing FP&A — SIXTH
     {
       name: "FP&A AI Dashboard",
       desc:
@@ -102,7 +120,7 @@ export default function Portfolio() {
       ],
       metrics: ["3–6 mo forecasts"],
     },
-    // 6) Analyst stack + BI storytelling — SIXTH
+    // 7) Analyst stack + BI storytelling — SEVENTH
     {
       name: "Snowflake + Power BI Analytics",
       desc:
@@ -120,7 +138,7 @@ export default function Portfolio() {
       ],
       metrics: [],
     },
-    // 7) Self-serve KPIs — SEVENTH
+    // 8) Self-serve KPIs — EIGHTH
     {
       name: "KPIFlow AI",
       desc:
@@ -138,7 +156,7 @@ export default function Portfolio() {
       ],
       metrics: [],
     },
-    // 8) Lighter demo — EIGHTH
+    // 9) Lighter demo — NINTH
     {
       name: "ExplainAnything.ai",
       desc:
@@ -170,6 +188,7 @@ export default function Portfolio() {
       "https://github.com/willckim/ai-research-copilot",
       "https://www.ai-financial-scenarios.com/fin-scenarios",
       "https://github.com/willckim/ai-financial-scenarios",
+      "https://github.com/willckim/domain-ft-llm",
       "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
       "https://play.google.com/apps/testing/com.willckim.splitchamp",
       "https://kpiflow-ai.streamlit.app/",
@@ -188,6 +207,7 @@ export default function Portfolio() {
       { "@type": "SoftwareApplication", name: "AI Research Copilot", url: "https://www.ai-research-copilot.com/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "SplitChamp AI", url: "https://play.google.com/apps/testing/com.willckim.splitchamp", applicationCategory: "MobileApplication", operatingSystem: "Android/iOS" },
       { "@type": "SoftwareApplication", name: "GhostTab AI", url: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", applicationCategory: "BrowserExtension", operatingSystem: "Any" },
+      { "@type": "SoftwareApplication", name: "Domain FT for LLMs", url: "https://github.com/willckim/domain-ft-llm", applicationCategory: "SoftwareSourceCode", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "AI Financial Scenarios", url: "https://www.ai-financial-scenarios.com/fin-scenarios", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "FP&A AI Dashboard", url: "https://github.com/willckim/fpna-ai-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "KPIFlow AI", url: "https://kpiflow-ai.streamlit.app/", applicationCategory: "WebApplication", operatingSystem: "Any" },
