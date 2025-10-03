@@ -29,8 +29,7 @@ export default function Portfolio() {
         "Deployed: Render (API) + Vercel (frontend) behind secure proxy.",
         "Embeddings + scalable search + modular orchestration for enterprise extensibility.",
       ],
-      // Impact badges (keep concise, numeric where possible)
-      metrics: [], // no hard metrics to badge here
+      metrics: [],
     },
     // 2) Mobile OCR + LLM — SECOND
     {
@@ -65,14 +64,14 @@ export default function Portfolio() {
         "Adaptive tab limits + Pomodoro timers + coaching UX.",
         "On-device ONNX classifier (onnxruntime-web).",
       ],
-      metrics: [], // no explicit numeric metrics to badge
+      metrics: [],
     },
     // 4) Finance modeling + LLMs — FOURTH
     {
       name: "AI Financial Scenarios",
       desc:
         "AI-powered financial scenario generator: upload company historicals, tweak assumptions, and generate CFO-style forecasts with executive summaries.",
-      live: null,
+      live: "https://www.ai-financial-scenarios.com/fin-scenarios",
       github: "https://github.com/willckim/ai-financial-scenarios",
       proof:
         "FastAPI backend + Next.js frontend; pandas/SQL pipelines for forecasts, LLM summaries (Claude/OpenAI); exportable CSV outputs.",
@@ -119,7 +118,7 @@ export default function Portfolio() {
         "Power BI KPIs: Total Sales, Orders, AOV; top customers/products.",
         "Transparent, auditable metric definitions for governance.",
       ],
-      metrics: [], // could add metrics if you have numbers (e.g., refresh time, coverage %)
+      metrics: [],
     },
     // 7) Self-serve KPIs — SEVENTH
     {
@@ -137,7 +136,7 @@ export default function Portfolio() {
         "Analyst-style insights generation for faster narratives.",
         "Exportable visuals for quick stakeholder share-outs.",
       ],
-      metrics: [], // add later if you quantify time saved, etc.
+      metrics: [],
     },
     // 8) Lighter demo — EIGHTH
     {
@@ -169,6 +168,7 @@ export default function Portfolio() {
       "https://github.com/willckim",
       "https://www.ai-research-copilot.com/",
       "https://github.com/willckim/ai-research-copilot",
+      "https://www.ai-financial-scenarios.com/fin-scenarios",
       "https://github.com/willckim/ai-financial-scenarios",
       "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
       "https://play.google.com/apps/testing/com.willckim.splitchamp",
@@ -188,7 +188,7 @@ export default function Portfolio() {
       { "@type": "SoftwareApplication", name: "AI Research Copilot", url: "https://www.ai-research-copilot.com/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "SplitChamp AI", url: "https://play.google.com/apps/testing/com.willckim.splitchamp", applicationCategory: "MobileApplication", operatingSystem: "Android/iOS" },
       { "@type": "SoftwareApplication", name: "GhostTab AI", url: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", applicationCategory: "BrowserExtension", operatingSystem: "Any" },
-      { "@type": "SoftwareApplication", name: "AI Financial Scenarios", url: "https://github.com/willckim/ai-financial-scenarios", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
+      { "@type": "SoftwareApplication", name: "AI Financial Scenarios", url: "https://www.ai-financial-scenarios.com/fin-scenarios", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "FP&A AI Dashboard", url: "https://github.com/willckim/fpna-ai-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "KPIFlow AI", url: "https://kpiflow-ai.streamlit.app/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "Snowflake + Power BI Analytics", url: "https://github.com/willckim/snowflake-powerbi-sales-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" }
