@@ -14,7 +14,7 @@ type Project = {
   desc: string;
   live?: string | null;
   github?: string | null;
-  hf?: string | null; // NEW: Hugging Face repo/model link
+  hf?: string | null; // Hugging Face repo/model link
   proof?: string;
   tags?: string[];
   status?: "active" | "paused" | "archived" | string;
@@ -25,18 +25,17 @@ type Project = {
 export default function Portfolio() {
   const YEAR = new Date().getFullYear();
 
-  // --- PROJECTS (reordered: strongest/most recent first) ---------------------
+  // --- PROJECTS (FinSight is the renamed Domain-FT; no separate block) ------
   const projects: Project[] = [
-    // 0) Featured — FinSight (your finance copilot, live site first)
     {
       name: "FinSight LLM – Finance Copilot",
       desc:
-        "Domain-tuned finance Q&A app (Next.js + Hugging Face Inference Endpoint). Chat with market ratios, filings, and valuation topics using a fine-tuned model.",
+        "Domain-tuned finance Q&A app (Next.js + Hugging Face Inference Endpoint). Chat about ratios, filings, and valuation topics using a fine-tuned model.",
       live: "https://www.finsight-llm.com/",
-      github: null, // set if public later
-      hf: "https://huggingface.co/willckim/domain-ft-qwen3b", // model powering FinSight
+      github: "https://github.com/willckim/domain-ft-llm",
+      hf: "https://huggingface.co/willckim/domain-ft-qwen3b",
       proof:
-        "Vercel frontend → serverless /api/chat → Hugging Face TGI endpoint with 3k-token prompt budget and safety clamps.",
+        "Vercel frontend → serverless /api/chat → Hugging Face TGI endpoint with ~3k-token prompt budget and safety clamps.",
       tags: ["Next.js", "Vercel", "TGI", "Hugging Face", "Domain FT"],
       status: "active",
       bullets: [
@@ -47,7 +46,7 @@ export default function Portfolio() {
       metrics: [],
     },
 
-    // 1) Enterprise RAG
+    // Enterprise RAG
     {
       name: "AI Research Copilot (Enterprise-Ready Doc-Chat)",
       desc:
@@ -66,7 +65,7 @@ export default function Portfolio() {
       metrics: [],
     },
 
-    // 2) Mobile OCR + LLM
+    // Mobile OCR + LLM
     {
       name: "SplitChamp AI",
       desc:
@@ -85,7 +84,7 @@ export default function Portfolio() {
       metrics: ["F1 +20%", "2h releases", "95%+ accuracy"],
     },
 
-    // 3) Chrome extension + ONNX
+    // Chrome extension + ONNX
     {
       name: "GhostTab AI",
       desc:
@@ -103,7 +102,7 @@ export default function Portfolio() {
       metrics: [],
     },
 
-    // 4) Finance modeling + LLMs
+    // Finance modeling + LLMs
     {
       name: "AI Financial Scenarios",
       desc:
@@ -122,7 +121,7 @@ export default function Portfolio() {
       metrics: ["-40% iteration time"],
     },
 
-    // 5) Operator-facing FP&A
+    // FP&A
     {
       name: "FP&A AI Dashboard",
       desc:
@@ -141,27 +140,7 @@ export default function Portfolio() {
       metrics: ["3–6 mo forecasts"],
     },
 
-    // 6) Domain FT — now with explicit Hugging Face link (also powers FinSight)
-    {
-      name: "Domain FT for LLMs",
-      desc:
-        "Domain-focused fine-tuning experiments for adapting general models to specialized corpora.",
-      live: null,
-      github: "https://github.com/willckim/domain-ft-llm",
-      hf: "https://huggingface.co/willckim/domain-ft-qwen3b", // NEW button
-      proof:
-        "Code/configs for domain adaptation runs, evaluation notes, and merged artifacts used in FinSight.",
-      tags: ["LLM", "Fine-tuning", "Evaluation", "Python", "Hugging Face"],
-      status: "active",
-      bullets: [
-        "Explores adaptation strategies for specialized datasets.",
-        "Reproducible training/eval configs and notes.",
-        "Trade-offs between data curation, cost, and quality.",
-      ],
-      metrics: [],
-    },
-
-    // 7) Snowflake + Power BI
+    // Snowflake + Power BI
     {
       name: "Snowflake + Power BI Analytics",
       desc:
@@ -180,7 +159,7 @@ export default function Portfolio() {
       metrics: [],
     },
 
-    // 8) KPIFlow
+    // KPIFlow
     {
       name: "KPIFlow AI",
       desc:
@@ -199,7 +178,7 @@ export default function Portfolio() {
       metrics: [],
     },
 
-    // 9) Lighter demo
+    // Lighter demo
     {
       name: "ExplainAnything.ai",
       desc:
@@ -218,7 +197,7 @@ export default function Portfolio() {
     },
   ];
 
-  // --- SCHEMA.ORG ------------------------------------------------------------
+  // --- SCHEMA.ORG (keep HF + repo in sameAs; remove separate Domain-FT part) --
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -227,13 +206,13 @@ export default function Portfolio() {
     sameAs: [
       "https://www.linkedin.com/in/william-c-kim/",
       "https://github.com/willckim",
-      "https://www.finsight-llm.com/", // NEW prominent site
-      "https://huggingface.co/willckim/domain-ft-qwen3b", // NEW model link
+      "https://www.finsight-llm.com/",
+      "https://github.com/willckim/domain-ft-llm",
+      "https://huggingface.co/willckim/domain-ft-qwen3b",
       "https://www.ai-research-copilot.com/",
       "https://github.com/willckim/ai-research-copilot",
       "https://www.ai-financial-scenarios.com/fin-scenarios",
       "https://github.com/willckim/ai-financial-scenarios",
-      "https://github.com/willckim/domain-ft-llm",
       "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
       "https://play.google.com/apps/testing/com.willckim.splitchamp",
       "https://kpiflow-ai.streamlit.app/",
@@ -253,11 +232,10 @@ export default function Portfolio() {
       { "@type": "SoftwareApplication", name: "AI Research Copilot", url: "https://www.ai-research-copilot.com/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "SplitChamp AI", url: "https://play.google.com/apps/testing/com.willckim.splitchamp", applicationCategory: "MobileApplication", operatingSystem: "Android/iOS" },
       { "@type": "SoftwareApplication", name: "GhostTab AI", url: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", applicationCategory: "BrowserExtension", operatingSystem: "Any" },
-      { "@type": "SoftwareApplication", name: "Domain FT for LLMs", url: "https://huggingface.co/willckim/domain-ft-qwen3b", applicationCategory: "SoftwareSourceCode", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "AI Financial Scenarios", url: "https://www.ai-financial-scenarios.com/fin-scenarios", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "FP&A AI Dashboard", url: "https://github.com/willckim/fpna-ai-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "KPIFlow AI", url: "https://kpiflow-ai.streamlit.app/", applicationCategory: "WebApplication", operatingSystem: "Any" },
-      { "@type": "SoftwareApplication", name: "Snowflake + Power BI Analytics", url: "https://github.com/willckim/snowflake-powerbi-sales-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
+      { "@type": "SoftwareApplication", name: "Snowflake + Power BI Analytics", url: "https://github.com/willckim/snowflake-powerbi-sales-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" }
     ],
   } as const;
 
@@ -319,7 +297,6 @@ export default function Portfolio() {
             I design, deploy, and scale <strong>AI/LLM-powered systems</strong> across web, mobile, and cloud. Experienced in <strong>RAG</strong>, <strong>OCR</strong>, provider-agnostic inference (OpenAI/Azure/Claude/Ollama/TGI), and <strong>cloud-native microservices</strong>.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
-            {/* NEW: Try FinSight CTA */}
             <Button asChild aria-label="Open FinSight LLM">
               <a href="https://www.finsight-llm.com/" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-1" /> Try FinSight
@@ -359,6 +336,11 @@ export default function Portfolio() {
                       <ExternalLink className="w-4 h-4 mr-1" /> Live
                     </a>
                   </Button>
+                  <Button asChild variant="outline" aria-label="Open FinSight GitHub">
+                    <a href="https://github.com/willckim/domain-ft-llm" target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 mr-1" /> GitHub
+                    </a>
+                  </Button>
                   <Button asChild variant="outline" aria-label="Open Hugging Face model powering FinSight">
                     <a href="https://huggingface.co/willckim/domain-ft-qwen3b" target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4 mr-1" /> Hugging Face
@@ -367,7 +349,7 @@ export default function Portfolio() {
                 </div>
               </div>
               <p className="text-sm sm:text-base">
-                Domain-tuned finance Q&A with 3k-token context and safe generation budgets. Built on Next.js + Vercel with a TGI endpoint on Hugging Face.
+                Domain-tuned finance Q&A with ~3k-token context and safe generation budgets. Built on Next.js + Vercel with a TGI endpoint on Hugging Face.
               </p>
               <ul className="flex flex-wrap gap-2 pt-1">
                 {["Next.js", "Vercel", "TGI", "Hugging Face", "Domain FT"].map((t) => (
@@ -389,7 +371,6 @@ export default function Portfolio() {
                     <h3 className="text-lg sm:text-xl font-semibold">{project.name}</h3>
                   </div>
 
-                  {/* Impact badges (optional) */}
                   {project.metrics && project.metrics.length > 0 && (
                     <ul className="flex flex-wrap gap-2">
                       {project.metrics.map((m, i) => (
@@ -410,7 +391,6 @@ export default function Portfolio() {
                     <p className="text-xs text-muted-foreground">{project.proof}</p>
                   )}
 
-                  {/* Tech chips */}
                   {project.tags && (
                     <ul className="flex flex-wrap gap-2 pt-1">
                       {project.tags.map((t) => (
@@ -421,7 +401,6 @@ export default function Portfolio() {
                     </ul>
                   )}
 
-                  {/* Resume-style bullets */}
                   {project.bullets && project.bullets.length > 0 && (
                     <ul className="list-disc pl-5 space-y-1 pt-2 text-sm">
                       {project.bullets.map((b, i) => (
@@ -459,7 +438,6 @@ export default function Portfolio() {
                       </Button>
                     )}
 
-                    {/* NEW: Hugging Face button when provided */}
                     {project.hf ? (
                       <Button asChild variant="outline" aria-label={`Open ${project.name} on Hugging Face`}>
                         <a href={project.hf} target="_blank" rel="noopener noreferrer">
