@@ -8,30 +8,65 @@ import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, Linkedin, FileDown } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
+// ---- Project type so we can add an optional Hugging Face link cleanly
+type Project = {
+  name: string;
+  desc: string;
+  live?: string | null;
+  github?: string | null;
+  hf?: string | null; // NEW: Hugging Face repo/model link
+  proof?: string;
+  tags?: string[];
+  status?: "active" | "paused" | "archived" | string;
+  bullets?: string[];
+  metrics?: string[];
+};
+
 export default function Portfolio() {
   const YEAR = new Date().getFullYear();
 
-  // --- PROJECTS --------------------------------------------------------------
-  const projects = [
-    // 1) Enterprise RAG — FIRST
+  // --- PROJECTS (reordered: strongest/most recent first) ---------------------
+  const projects: Project[] = [
+    // 0) Featured — FinSight (your finance copilot, live site first)
     {
-      name: "AI Research Copilot (Enterprise-Ready Doc-Chat)",
+      name: "FinSight LLM – Finance Copilot",
       desc:
-        "Provider-agnostic RAG system (FastAPI + pgvector) with OpenAI/Ollama backends. Semantic retrieval, LLM synthesis, and secure API proxying.",
-      live: "https://www.ai-research-copilot.com/",
-      github: "https://github.com/willckim/ai-research-copilot",
+        "Domain-tuned finance Q&A app (Next.js + Hugging Face Inference Endpoint). Chat with market ratios, filings, and valuation topics using a fine-tuned model.",
+      live: "https://www.finsight-llm.com/",
+      github: null, // set if public later
+      hf: "https://huggingface.co/willckim/domain-ft-qwen3b", // model powering FinSight
       proof:
-        "Render backend + Vercel frontend; embeddings, scalable search, modular orchestration; recruiter-facing demo.",
-      tags: ["FastAPI", "pgvector", "RAG", "OpenAI/Ollama", "Vercel", "Render"],
+        "Vercel frontend → serverless /api/chat → Hugging Face TGI endpoint with 3k-token prompt budget and safety clamps.",
+      tags: ["Next.js", "Vercel", "TGI", "Hugging Face", "Domain FT"],
       status: "active",
       bullets: [
-        "Provider-agnostic pipeline (OpenAI/Ollama) with semantic retrieval + synthesis.",
-        "Deployed: Render (API) + Vercel (frontend) behind secure proxy.",
-        "Embeddings + scalable search + modular orchestration for enterprise extensibility.",
+        "3,072-token inputs; server-safe max_new_tokens clamp; batching-friendly settings.",
+        "Clean chat memory with trimmed context; copy/share and reset flows.",
+        "Plug-and-play provider switch (finetuned ↔ OpenAI fallback).",
       ],
       metrics: [],
     },
-    // 2) Mobile OCR + LLM — SECOND
+
+    // 1) Enterprise RAG
+    {
+      name: "AI Research Copilot (Enterprise-Ready Doc-Chat)",
+      desc:
+        "Provider-agnostic RAG (FastAPI + pgvector) with OpenAI/Ollama backends. Semantic retrieval, LLM synthesis, and secure API proxying.",
+      live: "https://www.ai-research-copilot.com/",
+      github: "https://github.com/willckim/ai-research-copilot",
+      proof:
+        "Render backend + Vercel frontend; embeddings, scalable search, orchestration for enterprise demos.",
+      tags: ["FastAPI", "pgvector", "RAG", "OpenAI/Ollama", "Vercel", "Render"],
+      status: "active",
+      bullets: [
+        "Provider-agnostic pipeline with semantic retrieval + synthesis.",
+        "Deployed: Render (API) + Vercel (frontend) behind secure proxy.",
+        "Embeddings + scalable search + modular orchestration.",
+      ],
+      metrics: [],
+    },
+
+    // 2) Mobile OCR + LLM
     {
       name: "SplitChamp AI",
       desc:
@@ -45,118 +80,126 @@ export default function Portfolio() {
       bullets: [
         "Azure Document Intelligence + GPT-4/5 → 95%+ parsing accuracy.",
         "Post-processing (dedupe, heuristics, tax/tip) → F1 +20%.",
-        "Expo EAS CI/CD → release time 2 days → 2 hours.",
+        "Expo EAS CI/CD → releases in ~2 hours.",
       ],
       metrics: ["F1 +20%", "2h releases", "95%+ accuracy"],
     },
-    // 3) Shipped extension + ONNX — THIRD
+
+    // 3) Chrome extension + ONNX
     {
       name: "GhostTab AI",
       desc:
-        "Chrome extension with OCR-based page capture, Azure OpenAI summarization/rewriting, adaptive tab limits, Pomodoro timers, and contextual coaching.",
+        "Chrome extension with OCR capture, Azure OpenAI summarization/rewriting, adaptive tab limits, Pomodoro timers, and contextual coaching.",
       live: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
       github: "https://github.com/willckim/Ghosttab-AI",
-      proof: "Published on Chrome Web Store; summarizer/rewriter flows + ONNX classifier live.",
+      proof: "Chrome Web Store live; summarizer/rewriter flows + ONNX classifier.",
       tags: ["Chrome Extension", "Azure OpenAI", "OCR", "GPT-4/5", "ONNX"],
       status: "active",
       bullets: [
-        "OCR capture + Azure OpenAI summarization/rewriting flows.",
-        "Adaptive tab limits + Pomodoro timers + coaching UX.",
+        "OCR capture + Azure OpenAI summarization/rewriting.",
+        "Adaptive tab limits + Pomodoro + coaching UX.",
         "On-device ONNX classifier (onnxruntime-web).",
       ],
       metrics: [],
     },
-    // 4) Domain FT — FOURTH (new)
-    {
-      name: "Domain FT for LLMs",
-      desc:
-        "Domain-focused fine-tuning experiments for LLMs: training/evaluation workflows aimed at adapting general models to specialized corpora.",
-      live: null,
-      github: "https://github.com/willckim/domain-ft-llm",
-      proof:
-        "Repository with code/configs for domain adaptation runs and notes on evaluation approaches.",
-      tags: ["LLM", "Fine-tuning", "Evaluation", "Python"],
-      status: "active",
-      bullets: [
-        "Explores domain adaptation strategies to improve task performance on specialized datasets.",
-        "Organized training/eval workflows with clear configs for reproducibility.",
-        "Focus on practical trade-offs between data curation, cost, and quality.",
-      ],
-      metrics: [], // add measurable gains later if you benchmark
-    },
-    // 5) Finance modeling + LLMs — FIFTH
+
+    // 4) Finance modeling + LLMs
     {
       name: "AI Financial Scenarios",
       desc:
-        "AI-powered financial scenario generator: upload company historicals, tweak assumptions, and generate CFO-style forecasts with executive summaries.",
+        "Scenario generator: upload historicals, tweak assumptions, and generate CFO-style forecasts with executive summaries.",
       live: "https://www.ai-financial-scenarios.com/fin-scenarios",
       github: "https://github.com/willckim/ai-financial-scenarios",
       proof:
-        "FastAPI backend + Next.js frontend; pandas/SQL pipelines for forecasts, LLM summaries (Claude/OpenAI); exportable CSV outputs.",
+        "FastAPI + Next.js; pandas/SQL pipelines for forecasts; LLM summaries (Claude/OpenAI); exportable CSVs.",
       tags: ["Claude", "OpenAI", "Python", "FastAPI", "Next.js", "Finance"],
       status: "active",
       bullets: [
-        "Scenario-based forecasts, valuations, and sensitivities.",
-        "Bridges technical + business stakeholders via numeric rigor + narrative outputs.",
-        "Cut financial model iteration cycles by ~40%, accelerating decisions.",
+        "Scenario-based forecasts, valuations, sensitivities.",
+        "Numeric rigor + narrative outputs for execs.",
+        "Cut iteration cycles by ~40%.",
       ],
       metrics: ["-40% iteration time"],
     },
-    // 6) Operator-facing FP&A — SIXTH
+
+    // 5) Operator-facing FP&A
     {
       name: "FP&A AI Dashboard",
       desc:
-        "AI-assisted FP&A workflows: variance analysis, department forecasts, and automated executive summaries with exportable CSVs/PPTX.",
+        "Variance analysis, department forecasts, and automated executive summaries with exportable CSVs/PPTX.",
       live: null,
       github: "https://github.com/willckim/fpna-ai-dashboard",
       proof:
-        "Pandas/SQL variance pipeline, statsmodels forecasts (3–6 mo), rule-based + OpenAI/Azure summaries, Power BI-ready outputs.",
+        "Pandas/SQL variance pipeline, statsmodels forecasts (3–6 mo), rule-based + OpenAI/Azure summaries.",
       tags: ["Python", "Pandas", "Statsmodels", "OpenAI/Azure", "Power BI", "Forecasting"],
       status: "active",
       bullets: [
-        "Variance pipeline (pandas/SQL) + 3–6 mo forecasts (statsmodels).",
-        "Rule-based + LLM summaries for exec-ready briefs.",
+        "Variance pipeline (pandas/SQL) + rolling forecasts.",
+        "Rule-based + LLM summaries for exec briefs.",
         "Exports: CSVs/PPTX for finance workflows.",
       ],
       metrics: ["3–6 mo forecasts"],
     },
-    // 7) Analyst stack + BI storytelling — SEVENTH
+
+    // 6) Domain FT — now with explicit Hugging Face link (also powers FinSight)
+    {
+      name: "Domain FT for LLMs",
+      desc:
+        "Domain-focused fine-tuning experiments for adapting general models to specialized corpora.",
+      live: null,
+      github: "https://github.com/willckim/domain-ft-llm",
+      hf: "https://huggingface.co/willckim/domain-ft-qwen3b", // NEW button
+      proof:
+        "Code/configs for domain adaptation runs, evaluation notes, and merged artifacts used in FinSight.",
+      tags: ["LLM", "Fine-tuning", "Evaluation", "Python", "Hugging Face"],
+      status: "active",
+      bullets: [
+        "Explores adaptation strategies for specialized datasets.",
+        "Reproducible training/eval configs and notes.",
+        "Trade-offs between data curation, cost, and quality.",
+      ],
+      metrics: [],
+    },
+
+    // 7) Snowflake + Power BI
     {
       name: "Snowflake + Power BI Analytics",
       desc:
-        "End-to-end sales analytics: Snowflake SQL data modeling + Power BI dashboard with KPI cards, trends, top products, and category breakdowns.",
+        "End-to-end sales analytics: Snowflake SQL modeling + Power BI dashboard with KPI cards, trends, and category breakdowns.",
       live: "https://app.snowflake.com/zmydbpf/fq34862/w3u0HWZNPryg/query",
       github: "https://github.com/willckim/snowflake-powerbi-sales-dashboard",
       proof:
-        "Repo includes raw CSVs, SQL DDL/DML, and dashboard screenshots showing modeling, ETL, and BI storytelling.",
+        "Repo includes raw CSVs, SQL DDL/DML, and dashboard screenshots for modeling + BI storytelling.",
       tags: ["Snowflake", "SQL", "ETL", "Power BI", "KPIs", "Data Modeling"],
       status: "active",
       bullets: [
-        "Modeled sales data in Snowflake with reusable SQL layers.",
+        "Modeled sales in Snowflake with reusable SQL layers.",
         "Power BI KPIs: Total Sales, Orders, AOV; top customers/products.",
-        "Transparent, auditable metric definitions for governance.",
+        "Auditable metric definitions for governance.",
       ],
       metrics: [],
     },
-    // 8) Self-serve KPIs — EIGHTH
+
+    // 8) KPIFlow
     {
       name: "KPIFlow AI",
       desc:
-        "Self-serve KPI dashboards from CSV/SQL with automated insights. Streamlit front-end with pandas and exportable visuals.",
+        "Self-serve KPI dashboards from CSV/SQL with automated insights. Streamlit front-end; exportable visuals.",
       live: "https://kpiflow-ai.streamlit.app/",
       github: "https://github.com/willckim/kpiflow-ai",
       proof:
-        "Automated KPI cards, trend charts, CSV → insights; built for analyst-style storytelling and share-outs.",
-      tags: ["Python", "Pandas", "Streamlit", "Plotly", "CSV→Dashboard", "Insights"],
+        "Automated KPI cards, trend charts, CSV → insights; built for analyst-style narratives.",
+      tags: ["Python", "Pandas", "Streamlit", "Plotly", "CSV→Dashboard"],
       status: "active",
       bullets: [
-        "CSV/SQL ingestion → KPI cards + trends automatically.",
-        "Analyst-style insights generation for faster narratives.",
-        "Exportable visuals for quick stakeholder share-outs.",
+        "CSV/SQL ingestion → KPI cards + trends.",
+        "Insight generation for faster share-outs.",
+        "Exportable visuals for stakeholders.",
       ],
       metrics: [],
     },
-    // 9) Lighter demo — NINTH
+
+    // 9) Lighter demo
     {
       name: "ExplainAnything.ai",
       desc:
@@ -173,7 +216,7 @@ export default function Portfolio() {
       ],
       metrics: [],
     },
-  ] as const;
+  ];
 
   // --- SCHEMA.ORG ------------------------------------------------------------
   const jsonLd = {
@@ -184,6 +227,8 @@ export default function Portfolio() {
     sameAs: [
       "https://www.linkedin.com/in/william-c-kim/",
       "https://github.com/willckim",
+      "https://www.finsight-llm.com/", // NEW prominent site
+      "https://huggingface.co/willckim/domain-ft-qwen3b", // NEW model link
       "https://www.ai-research-copilot.com/",
       "https://github.com/willckim/ai-research-copilot",
       "https://www.ai-financial-scenarios.com/fin-scenarios",
@@ -194,24 +239,25 @@ export default function Portfolio() {
       "https://kpiflow-ai.streamlit.app/",
       "https://github.com/willckim/snowflake-powerbi-sales-dashboard",
       "https://app.snowflake.com/zmydbpf/fq34862/w3u0HWZNPryg/query",
-      "https://github.com/willckim/fpna-ai-dashboard"
+      "https://github.com/willckim/fpna-ai-dashboard",
     ],
     jobTitle: "Applied AI Engineer",
     worksFor: { "@type": "Organization", name: "Independent" },
     knowsAbout: [
       "RAG", "OCR", "LLM integration", "OpenAI", "Azure AI", "Claude", "Ollama",
       "Python", "SQL", "Cloud-native microservices", "FastAPI", "React Native",
-      "Next.js", "Docker", "GCP", "AWS", "Render", "Vercel"
+      "Next.js", "Docker", "GCP", "AWS", "Render", "Vercel", "TGI", "Hugging Face"
     ],
     hasPart: [
+      { "@type": "SoftwareApplication", name: "FinSight LLM", url: "https://www.finsight-llm.com/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "AI Research Copilot", url: "https://www.ai-research-copilot.com/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "SplitChamp AI", url: "https://play.google.com/apps/testing/com.willckim.splitchamp", applicationCategory: "MobileApplication", operatingSystem: "Android/iOS" },
       { "@type": "SoftwareApplication", name: "GhostTab AI", url: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija", applicationCategory: "BrowserExtension", operatingSystem: "Any" },
-      { "@type": "SoftwareApplication", name: "Domain FT for LLMs", url: "https://github.com/willckim/domain-ft-llm", applicationCategory: "SoftwareSourceCode", operatingSystem: "Any" },
+      { "@type": "SoftwareApplication", name: "Domain FT for LLMs", url: "https://huggingface.co/willckim/domain-ft-qwen3b", applicationCategory: "SoftwareSourceCode", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "AI Financial Scenarios", url: "https://www.ai-financial-scenarios.com/fin-scenarios", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "FP&A AI Dashboard", url: "https://github.com/willckim/fpna-ai-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "KPIFlow AI", url: "https://kpiflow-ai.streamlit.app/", applicationCategory: "WebApplication", operatingSystem: "Any" },
-      { "@type": "SoftwareApplication", name: "Snowflake + Power BI Analytics", url: "https://github.com/willckim/snowflake-powerbi-sales-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" }
+      { "@type": "SoftwareApplication", name: "Snowflake + Power BI Analytics", url: "https://github.com/willckim/snowflake-powerbi-sales-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
     ],
   } as const;
 
@@ -221,12 +267,12 @@ export default function Portfolio() {
         <title>William Kim – Applied AI Engineer</title>
         <meta
           name="description"
-          content="Applied AI Engineer with experience designing, deploying, and scaling AI/LLM systems across web, mobile, and cloud. Skilled in RAG, OCR, LLM integration, and multi-provider inference (OpenAI, Azure, Claude, Ollama)."
+          content="Applied AI Engineer building FinSight LLM and enterprise-grade AI/LLM systems across web, mobile, and cloud. RAG, OCR, TGI/Hugging Face, OpenAI, Azure."
         />
         <meta property="og:title" content="William Kim – Applied AI Engineer" />
         <meta
           property="og:description"
-          content="RAG • OCR • LLM integration • multi-provider inference • FastAPI • React Native • Next.js • cloud microservices."
+          content="FinSight LLM • RAG • OCR • provider-agnostic inference • FastAPI • React Native • Next.js • cloud microservices."
         />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
@@ -235,7 +281,7 @@ export default function Portfolio() {
         <meta name="twitter:title" content="William Kim – Applied AI Engineer" />
         <meta
           name="twitter:description"
-          content="Python • SQL • RAG • OCR • FastAPI • React Native • Next.js • Docker • GCP/AWS • OpenAI/Azure/Claude/Ollama."
+          content="Python • SQL • RAG • OCR • FastAPI • React Native • Next.js • Docker • GCP/AWS • OpenAI/Azure/Claude/Ollama • Hugging Face TGI."
         />
         <meta name="twitter:image" content="/og-image.png" />
         <link rel="canonical" href="https://williamckim.com" />
@@ -257,9 +303,10 @@ export default function Portfolio() {
         <header className="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-border p-4 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0">
           <h1 className="text-lg font-semibold">William Kim</h1>
           <nav className="space-x-4 md:space-x-6 text-sm md:text-base" aria-label="Primary">
-            <Link href="#about" className="hover:underline">About</Link>
+            <Link href="#featured" className="hover:underline">Featured</Link>
             <Link href="#projects" className="hover:underline">Projects</Link>
             <Link href="#highlights" className="hover:underline">Highlights</Link>
+            <Link href="#about" className="hover:underline">About</Link>
             <Link href="#contact" className="hover:underline">Contact</Link>
           </nav>
           <ThemeToggle />
@@ -269,9 +316,15 @@ export default function Portfolio() {
         <section className="text-center space-y-4 px-4 py-8">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">Applied AI Engineer</h2>
           <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-            I design, deploy, and scale <strong>AI/LLM-powered systems</strong> across web, mobile, and cloud. Experienced in <strong>RAG</strong>, <strong>OCR</strong>, multi-provider inference (OpenAI/Azure/Claude/Ollama), and <strong>cloud-native microservices</strong>.
+            I design, deploy, and scale <strong>AI/LLM-powered systems</strong> across web, mobile, and cloud. Experienced in <strong>RAG</strong>, <strong>OCR</strong>, provider-agnostic inference (OpenAI/Azure/Claude/Ollama/TGI), and <strong>cloud-native microservices</strong>.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+            {/* NEW: Try FinSight CTA */}
+            <Button asChild aria-label="Open FinSight LLM">
+              <a href="https://www.finsight-llm.com/" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4 mr-1" /> Try FinSight
+              </a>
+            </Button>
             <Button asChild aria-label="Download resume PDF">
               <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
                 <FileDown className="w-4 h-4 mr-1" /> Download Resume (PDF)
@@ -289,16 +342,40 @@ export default function Portfolio() {
             </Button>
           </div>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Python • SQL • FastAPI • RAG • OCR • React Native • Next.js • Docker • GCP/AWS • OpenAI • Azure • Claude • Ollama
+            Python • SQL • FastAPI • RAG • OCR • React Native • Next.js • Docker • GCP/AWS • OpenAI • Azure • Claude • Ollama • TGI/Hugging Face
           </p>
         </section>
 
-        {/* About */}
-        <section id="about" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
-          <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
-          <p className="text-sm sm:text-base leading-relaxed">
-            I’m William Kim — an Applied AI Engineer with a track record of shipping <strong>production-grade ML systems</strong> that balance startup speed and enterprise reliability. I work end-to-end (Python/SQL → services → web/mobile) and add LLM/OCR components where they reduce time-to-value. Recent work includes an <strong>enterprise-ready RAG system</strong> (AI Research Copilot), a <strong>cross-platform OCR app</strong> (SplitChamp AI), and a <strong>Chrome extension</strong> for summarization and focus (GhostTab AI).
-          </p>
+        {/* Featured (FinSight) */}
+        <section id="featured" className="max-w-5xl mx-auto space-y-4 px-4 py-6">
+          <h2 className="text-xl sm:text-2xl font-semibold">Featured</h2>
+          <Card className="border-2">
+            <CardContent className="p-5 md:p-6 space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg sm:text-xl font-semibold">FinSight LLM – Finance Copilot</h3>
+                <div className="flex gap-2">
+                  <Button asChild variant="outline" aria-label="Open FinSight (live)">
+                    <a href="https://www.finsight-llm.com/" target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4 mr-1" /> Live
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline" aria-label="Open Hugging Face model powering FinSight">
+                    <a href="https://huggingface.co/willckim/domain-ft-qwen3b" target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4 mr-1" /> Hugging Face
+                    </a>
+                  </Button>
+                </div>
+              </div>
+              <p className="text-sm sm:text-base">
+                Domain-tuned finance Q&A with 3k-token context and safe generation budgets. Built on Next.js + Vercel with a TGI endpoint on Hugging Face.
+              </p>
+              <ul className="flex flex-wrap gap-2 pt-1">
+                {["Next.js", "Vercel", "TGI", "Hugging Face", "Domain FT"].map((t) => (
+                  <li key={t} className="text-xs px-2 py-0.5 rounded-full border">{t}</li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         </section>
 
         {/* Projects */}
@@ -312,7 +389,7 @@ export default function Portfolio() {
                     <h3 className="text-lg sm:text-xl font-semibold">{project.name}</h3>
                   </div>
 
-                  {/* Impact badges (subtle) */}
+                  {/* Impact badges (optional) */}
                   {project.metrics && project.metrics.length > 0 && (
                     <ul className="flex flex-wrap gap-2">
                       {project.metrics.map((m, i) => (
@@ -381,6 +458,16 @@ export default function Portfolio() {
                         GitHub (private)
                       </Button>
                     )}
+
+                    {/* NEW: Hugging Face button when provided */}
+                    {project.hf ? (
+                      <Button asChild variant="outline" aria-label={`Open ${project.name} on Hugging Face`}>
+                        <a href={project.hf} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-1" />
+                          Hugging Face
+                        </a>
+                      </Button>
+                    ) : null}
                   </div>
                 </CardContent>
               </Card>
@@ -388,22 +475,21 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Highlights (skills / certs / experience summary) */}
+        {/* Highlights */}
         <section id="highlights" className="max-w-5xl mx-auto space-y-6 px-4 py-6">
-          {/* Professional Summary */}
           <div className="space-y-2">
             <h3 className="font-semibold text-base sm:text-lg">Professional Summary</h3>
             <p className="text-sm sm:text-base leading-6">
-              Applied AI Engineer with experience designing, deploying, and scaling AI/LLM-powered systems across web, mobile, and cloud. Skilled in RAG, OCR, LLM integration, and multi-provider inference (OpenAI, Azure, Claude, Ollama). Strong foundation in Python, SQL, and cloud-native microservices with a record of delivering production-grade ML pipelines.
+              Applied AI Engineer with experience designing, deploying, and scaling AI/LLM-powered systems across web, mobile, and cloud.
+              Skilled in RAG, OCR, provider-agnostic inference (OpenAI, Azure, Claude, Ollama, TGI/HF), and cloud-native microservices.
             </p>
           </div>
 
-          {/* Key Skills */}
           <div className="space-y-2">
             <h3 className="font-semibold text-base sm:text-lg">Core Skills</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 list-disc list-inside text-sm">
               <li><b>Languages:</b> Python, SQL, C++, Java, TypeScript/JavaScript, HTML/CSS</li>
-              <li><b>AI/ML:</b> PyTorch, Hugging Face, ONNX, GPT-4/5, Claude, Ollama, Azure AI, OCR (Tesseract/OpenCV), scikit-learn</li>
+              <li><b>AI/ML:</b> PyTorch, Hugging Face/TGI, ONNX, GPT-4/5, Claude, Ollama, Azure AI, OCR, scikit-learn</li>
               <li><b>Cloud & MLOps:</b> AWS, GCP, Docker, Render, Vercel, Supabase, CI/CD, Git, Linux</li>
               <li><b>Frameworks:</b> FastAPI, React Native, Expo, Next.js, TailwindCSS</li>
               <li><b>Patterns:</b> RAG, vector search, observability, provider switching</li>
@@ -411,7 +497,6 @@ export default function Portfolio() {
             </ul>
           </div>
 
-          {/* Certifications */}
           <div className="space-y-2">
             <h3 className="font-semibold text-base sm:text-lg">Certifications</h3>
             <ul className="list-disc list-inside text-sm">
@@ -420,7 +505,6 @@ export default function Portfolio() {
             </ul>
           </div>
 
-          {/* Education */}
           <div className="space-y-2">
             <h3 className="font-semibold text-base sm:text-lg">Education</h3>
             <p className="text-sm">
@@ -428,14 +512,24 @@ export default function Portfolio() {
             </p>
           </div>
 
-          {/* Recent Experience */}
           <div className="space-y-2">
             <h3 className="font-semibold text-base sm:text-lg">Recent Experience</h3>
             <ul className="list-disc list-inside text-sm leading-6">
-              <li><b>Founder & Lead AI Engineer</b> — Self-Launched AI Applications (May 2023 – Present)</li>
+              <li><b>Founder & Lead AI Engineer</b> — Self-launched AI Applications (May 2023 – Present)</li>
               <li><b>Physical Therapy Aide</b> — Athletico Physical Therapy, Lake Zurich, IL (Oct 2024 – Present)</li>
             </ul>
           </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className="max-w-3xl mx-auto space-y-4 px-4 py-6">
+          <h2 className="text-xl sm:text-2xl font-semibold">About Me</h2>
+          <p className="text-sm sm:text-base leading-relaxed">
+            I’m William Kim — an Applied AI Engineer with a track record of shipping <strong>production-grade ML systems</strong>
+            that balance startup speed and enterprise reliability. I work end-to-end (Python/SQL → services → web/mobile) and add
+            LLM/OCR components where they reduce time-to-value. Recent work includes <strong>FinSight LLM</strong>, an
+            <strong> enterprise-ready RAG system</strong> (AI Research Copilot), and a <strong>Chrome extension</strong> for focus coaching (GhostTab AI).
+          </p>
         </section>
 
         {/* Contact */}
