@@ -30,7 +30,7 @@ export default function Portfolio() {
     {
       name: "FinSight LLM – Finance Copilot",
       desc:
-        "Domain-tuned finance Q&A app (Next.js + Hugging Face Inference Endpoint). Chat about ratios, filings, and valuation topics using a fine-tuned model.",
+        "Domain-tuned finance Q&A (Next.js + Hugging Face Inference Endpoint). Chat about ratios, filings, and valuation topics using a fine-tuned model.",
       live: "https://www.finsight-llm.com/",
       github: "https://github.com/willckim/domain-ft-llm",
       hf: "https://huggingface.co/willckim/domain-ft-qwen3b",
@@ -39,11 +39,11 @@ export default function Portfolio() {
       tags: ["Next.js", "Vercel", "TGI", "Hugging Face", "Domain FT"],
       status: "active",
       bullets: [
-        "3,072-token inputs; server-safe max_new_tokens clamp; batching-friendly settings.",
-        "Clean chat memory with trimmed context; copy/share and reset flows.",
-        "Plug-and-play provider switch (finetuned ↔ OpenAI fallback).",
+        "Fine-tuned Qwen-3B (LoRA/PEFT) + quantization; ONNX export path available.",
+        "3,072-token inputs; safe max_new_tokens clamp; context trimming.",
+        "Provider switch (finetuned ↔ OpenAI fallback) for reliability."
       ],
-      metrics: [],
+      metrics: ["+25–30% accuracy", "2× faster inference"],
     },
 
     // Enterprise RAG
@@ -59,29 +59,29 @@ export default function Portfolio() {
       status: "active",
       bullets: [
         "Provider-agnostic pipeline with semantic retrieval + synthesis.",
-        "Deployed: Render (API) + Vercel (frontend) behind secure proxy.",
-        "Embeddings + scalable search + modular orchestration.",
+        "Render (API) + Vercel (frontend) behind secure proxy.",
+        "Failover + load-balancing across providers."
       ],
-      metrics: [],
+      metrics: ["99.9% uptime"],
     },
 
     // Mobile OCR + LLM
     {
       name: "SplitChamp AI",
       desc:
-        "AI bill-splitting app with Azure Document Intelligence/Vision + GPT-4o/5 for receipt parsing and structured expense breakdowns.",
+        "AI bill-splitting app with Azure Document Intelligence/Vision + GPT-4/5 for receipt parsing and structured expense breakdowns.",
       live: "https://play.google.com/apps/testing/com.willckim.splitchamp",
       github: "https://github.com/willckim/splitchamp-ai",
       proof:
-        "95%+ OCR accuracy target with post-processing (dedupe, heuristics, tax/tip reconciliation); Expo EAS CI/CD.",
-      tags: ["Expo/React Native", "FastAPI", "Azure OCR", "GPT-4o/5", "Stripe/RevenueCat"],
+        "Post-processing (dedupe, heuristics, tax/tip reconciliation); Expo EAS CI/CD.",
+      tags: ["Expo/React Native", "FastAPI", "Azure OCR", "GPT-4/5", "Stripe/RevenueCat"],
       status: "active",
       bullets: [
         "Azure Document Intelligence + GPT-4/5 → 95%+ parsing accuracy.",
         "Post-processing (dedupe, heuristics, tax/tip) → F1 +20%.",
-        "Expo EAS CI/CD → releases in ~2 hours.",
+        "Expo EAS CI/CD → releases cut from 2 days to ~2 hours."
       ],
-      metrics: ["F1 +20%", "2h releases", "95%+ accuracy"],
+      metrics: ["95%+ accuracy", "F1 +20%", "2h releases"],
     },
 
     // Chrome extension + ONNX
@@ -97,7 +97,7 @@ export default function Portfolio() {
       bullets: [
         "OCR capture + Azure OpenAI summarization/rewriting.",
         "Adaptive tab limits + Pomodoro + coaching UX.",
-        "On-device ONNX classifier (onnxruntime-web).",
+        "On-device ONNX classifier (onnxruntime-web)."
       ],
       metrics: [],
     },
@@ -116,9 +116,9 @@ export default function Portfolio() {
       bullets: [
         "Scenario-based forecasts, valuations, sensitivities.",
         "Numeric rigor + narrative outputs for execs.",
-        "Cut iteration cycles by ~40%.",
+        "Reduced iteration cycles with templated flows."
       ],
-      metrics: ["-40% iteration time"],
+      metrics: ["~40% faster iterations"],
     },
 
     // FP&A
@@ -135,7 +135,7 @@ export default function Portfolio() {
       bullets: [
         "Variance pipeline (pandas/SQL) + rolling forecasts.",
         "Rule-based + LLM summaries for exec briefs.",
-        "Exports: CSVs/PPTX for finance workflows.",
+        "Exports: CSVs/PPTX for finance workflows."
       ],
       metrics: ["3–6 mo forecasts"],
     },
@@ -154,7 +154,7 @@ export default function Portfolio() {
       bullets: [
         "Modeled sales in Snowflake with reusable SQL layers.",
         "Power BI KPIs: Total Sales, Orders, AOV; top customers/products.",
-        "Auditable metric definitions for governance.",
+        "Auditable metric definitions for governance."
       ],
       metrics: [],
     },
@@ -173,7 +173,7 @@ export default function Portfolio() {
       bullets: [
         "CSV/SQL ingestion → KPI cards + trends.",
         "Insight generation for faster share-outs.",
-        "Exportable visuals for stakeholders.",
+        "Exportable visuals for stakeholders."
       ],
       metrics: [],
     },
@@ -191,13 +191,13 @@ export default function Portfolio() {
       bullets: [
         "ELI5 simplification with controllable tone.",
         "Multilingual outputs for global audiences.",
-        "Lightweight Next.js stack with Supabase.",
+        "Lightweight Next.js stack with Supabase."
       ],
       metrics: [],
     },
   ];
 
-  // --- SCHEMA.ORG (keep HF + repo in sameAs; remove separate Domain-FT part) --
+  // --- SCHEMA.ORG (aligned to resume: role, projects, certification only) ----
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -218,10 +218,23 @@ export default function Portfolio() {
       "https://kpiflow-ai.streamlit.app/",
       "https://github.com/willckim/snowflake-powerbi-sales-dashboard",
       "https://app.snowflake.com/zmydbpf/fq34862/w3u0HWZNPryg/query",
-      "https://github.com/willckim/fpna-ai-dashboard",
+      "https://github.com/willckim/fpna-ai-dashboard"
     ],
     jobTitle: "Applied AI Engineer",
     worksFor: { "@type": "Organization", name: "Independent" },
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "ProfessionalCertification",
+        name: "Microsoft Certified: Azure AI Engineer Associate",
+        description: "Exam scheduled Oct 24, 2025"
+      }
+    ],
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "University of Pittsburgh",
+      sameAs: "https://www.pitt.edu/"
+    },
     knowsAbout: [
       "RAG", "OCR", "LLM integration", "OpenAI", "Azure AI", "Claude", "Ollama",
       "Python", "SQL", "Cloud-native microservices", "FastAPI", "React Native",
@@ -236,7 +249,7 @@ export default function Portfolio() {
       { "@type": "SoftwareApplication", name: "FP&A AI Dashboard", url: "https://github.com/willckim/fpna-ai-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "KPIFlow AI", url: "https://kpiflow-ai.streamlit.app/", applicationCategory: "WebApplication", operatingSystem: "Any" },
       { "@type": "SoftwareApplication", name: "Snowflake + Power BI Analytics", url: "https://github.com/willckim/snowflake-powerbi-sales-dashboard", applicationCategory: "BusinessApplication", operatingSystem: "Any" }
-    ],
+    ]
   } as const;
 
   return (
@@ -294,11 +307,11 @@ export default function Portfolio() {
         <section className="text-center space-y-4 px-4 py-8">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold">Applied AI Engineer</h2>
           <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-            I design, deploy, and scale <strong>AI/LLM-powered systems</strong> across web, mobile, and cloud. Experienced in <strong>RAG</strong>, <strong>OCR</strong>, provider-agnostic inference (OpenAI/Azure/Claude/Ollama/TGI), and <strong>cloud-native microservices</strong>.
+            I design, deploy, and scale <strong>AI/LLM-powered systems</strong> across web, mobile, and cloud. Skilled in <strong>RAG</strong>, <strong>OCR</strong>, provider-agnostic inference (OpenAI/Azure/Claude/Ollama/TGI), and <strong>cloud-native microservices</strong>.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Button asChild aria-label="Open FinSight LLM">
-              <a href="https://www.finsight-llm.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.finsight-llm.com/" target="_blank" rel="me noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-1" /> Try FinSight
               </a>
             </Button>
@@ -308,12 +321,12 @@ export default function Portfolio() {
               </a>
             </Button>
             <Button asChild variant="outline" aria-label="Open LinkedIn profile">
-              <a href="https://www.linkedin.com/in/william-c-kim/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/william-c-kim/" target="_blank" rel="me noopener noreferrer">
                 <Linkedin className="w-4 h-4 mr-1" /> Let’s Connect
               </a>
             </Button>
             <Button asChild variant="secondary" aria-label="Open GitHub profile">
-              <a href="https://github.com/willckim" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/willckim" target="_blank" rel="me noopener noreferrer">
                 <Github className="w-4 h-4 mr-1" /> GitHub
               </a>
             </Button>
@@ -453,13 +466,14 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Highlights */}
+        {/* Highlights (aligned to résumé) */}
         <section id="highlights" className="max-w-5xl mx-auto space-y-6 px-4 py-6">
           <div className="space-y-2">
             <h3 className="font-semibold text-base sm:text-lg">Professional Summary</h3>
             <p className="text-sm sm:text-base leading-6">
-              Applied AI Engineer with experience designing, deploying, and scaling AI/LLM-powered systems across web, mobile, and cloud.
-              Skilled in RAG, OCR, provider-agnostic inference (OpenAI, Azure, Claude, Ollama, TGI/HF), and cloud-native microservices.
+              Applied AI Engineer with hands-on experience fine-tuning, deploying, and scaling LLM-powered systems across web, mobile, and cloud.
+              Skilled in RAG, OCR, and ONNX/quantization using OpenAI, Azure, and Ollama. Proven ability to deliver production-ready pipelines that
+              drive measurable gains in model accuracy, runtime efficiency, and system reliability.
             </p>
           </div>
 
@@ -467,19 +481,18 @@ export default function Portfolio() {
             <h3 className="font-semibold text-base sm:text-lg">Core Skills</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 list-disc list-inside text-sm">
               <li><b>Languages:</b> Python, SQL, C++, Java, TypeScript/JavaScript, HTML/CSS</li>
-              <li><b>AI/ML:</b> PyTorch, Hugging Face/TGI, ONNX, GPT-4/5, Claude, Ollama, Azure AI, OCR, scikit-learn</li>
-              <li><b>Cloud & MLOps:</b> AWS, GCP, Docker, Render, Vercel, Supabase, CI/CD, Git, Linux</li>
+              <li><b>AI/ML:</b> PyTorch, Hugging Face/TGI, LoRA/PEFT, Quantization, ONNX, GPT-4/5, Claude, Ollama, OCR (Azure, OpenCV), scikit-learn</li>
+              <li><b>Cloud & MLOps:</b> Azure, AWS, GCP, Docker, Cloud Run, Render, Vercel, Supabase, CI/CD, Git/GitHub, Linux/Unix</li>
               <li><b>Frameworks:</b> FastAPI, React Native, Expo, Next.js, TailwindCSS</li>
-              <li><b>Patterns:</b> RAG, vector search, observability, provider switching</li>
+              <li><b>Patterns:</b> RAG, vector search, provider switching, observability</li>
               <li><b>Analytics:</b> Power BI, pandas, experimentation, forecasting</li>
             </ul>
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-semibold text-base sm:text-lg">Certifications</h3>
+            <h3 className="font-semibold text-base sm:text-lg">Certification</h3>
             <ul className="list-disc list-inside text-sm">
-              <li>Azure Fundamentals <i>(in progress)</i></li>
-              <li>AWS Solutions Architect – Associate <i>(upcoming)</i></li>
+              <li>Microsoft Certified: Azure AI Engineer Associate — <i>Exam scheduled Oct 24, 2025</i></li>
             </ul>
           </div>
 
@@ -493,8 +506,8 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-base sm:text-lg">Recent Experience</h3>
             <ul className="list-disc list-inside text-sm leading-6">
-              <li><b>Founder & Lead AI Engineer</b> — Self-launched AI Applications (May 2023 – Present)</li>
-              <li><b>Physical Therapy Aide</b> — Athletico Physical Therapy, Lake Zurich, IL (Oct 2024 – Present)</li>
+              <li><b>Independent AI Engineer — Production Deployments</b> (May 2023 – Present)</li>
+              {/* Athletico role removed to match résumé; re-add if you want it on-site */}
             </ul>
           </div>
         </section>
@@ -530,7 +543,7 @@ export default function Portfolio() {
                 href="https://www.linkedin.com/in/william-c-kim/"
                 className="text-blue-500 hover:underline"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
               >
                 william-c-kim
               </a>
@@ -541,7 +554,7 @@ export default function Portfolio() {
                 href="https://github.com/willckim"
                 className="text-blue-500 hover:underline"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
               >
                 @willckim
               </a>
