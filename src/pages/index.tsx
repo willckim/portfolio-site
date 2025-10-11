@@ -37,13 +37,13 @@ export default function Portfolio() {
       issuer: "IBM",
       name: "Applied AI Developer — Professional Certificate",
       note: "In Progress",
-      url: "https://www.coursera.org/professional-certificates/ibm-applied-ai-developer",
+      url: "https://courses.edx.org/dashboard/programs/b6c81b35-e8e2-46e1-8165-2dd36f8e5f58/",
     },
     {
       issuer: "Databricks",
       name: "Generative AI Fundamentals — Accredited",
       note: "Issued Oct 2024",
-      url: "https://www.databricks.com/learn/certification",
+      url: "https://credentials.databricks.com/e34f4848-d941-4a9e-8ef6-fa59298ac56e#acc.KwWqXul6",
     },
   ] as const;
 
