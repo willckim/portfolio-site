@@ -5,7 +5,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Linkedin, FileDown } from "lucide-react";
+import { Github, ExternalLink, Linkedin, FileDown, ShieldCheck } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 // ---- Project type so we can add an optional Hugging Face link cleanly
@@ -24,6 +24,28 @@ type Project = {
 
 export default function Portfolio() {
   const YEAR = new Date().getFullYear();
+
+  // ---- CERTIFICATIONS (single source of truth)
+  const certs = [
+    {
+      issuer: "Microsoft",
+      name: "Azure AI Engineer Associate (AI-102)",
+      note: "Exam Oct 2025",
+      url: "https://learn.microsoft.com/credentials/certifications/azure-ai-engineer/",
+    },
+    {
+      issuer: "IBM",
+      name: "Applied AI Developer — Professional Certificate",
+      note: "In Progress",
+      url: "https://www.coursera.org/professional-certificates/ibm-applied-ai-developer",
+    },
+    {
+      issuer: "Databricks",
+      name: "Generative AI Fundamentals — Accredited",
+      note: "Issued Oct 2024",
+      url: "https://www.databricks.com/learn/certification",
+    },
+  ] as const;
 
   // --- PROJECTS (FinSight is the renamed Domain-FT; no separate block) ------
   const projects: Project[] = [
@@ -89,7 +111,7 @@ export default function Portfolio() {
       name: "GhostTab AI",
       desc:
         "Chrome extension with OCR capture, Azure OpenAI summarization/rewriting, adaptive tab limits, Pomodoro timers, and contextual coaching.",
-      live: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkfgcooblddagommcmklnija",
+      live: "https://chromewebstore.google.com/detail/ghosttab-ai/hbjipanckkkfgcooblddagommcmklnija",
       github: "https://github.com/willckim/Ghosttab-AI",
       proof: "Chrome Web Store live; summarizer/rewriter flows + ONNX classifier.",
       tags: ["Chrome Extension", "Azure OpenAI", "OCR", "GPT-4/5", "ONNX"],
@@ -226,8 +248,23 @@ export default function Portfolio() {
       {
         "@type": "EducationalOccupationalCredential",
         credentialCategory: "ProfessionalCertification",
-        name: "Microsoft Certified: Azure AI Engineer Associate",
+        name: "Microsoft Certified: Azure AI Engineer Associate (AI-102)",
+        recognizedBy: { "@type": "Organization", name: "Microsoft" },
         description: "Exam scheduled Oct 24, 2025"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "ProfessionalCertificate",
+        name: "IBM Applied AI Developer",
+        recognizedBy: { "@type": "Organization", name: "IBM" },
+        description: "Professional Certificate — In Progress"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "ProfessionalCertificate",
+        name: "Generative AI Fundamentals — Accredited",
+        recognizedBy: { "@type": "Organization", name: "Databricks" },
+        description: "Issued Oct 2024"
       }
     ],
     alumniOf: {
@@ -309,7 +346,28 @@ export default function Portfolio() {
           <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
             I design, deploy, and scale <strong>AI/LLM-powered systems</strong> across web, mobile, and cloud. Skilled in <strong>RAG</strong>, <strong>OCR</strong>, provider-agnostic inference (OpenAI/Azure/Claude/Ollama/TGI), and <strong>cloud-native microservices</strong>.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+
+          {/* Certifications ribbon for instant trust */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-1">
+            {certs.map((c) => (
+              <a
+                key={c.name}
+                href={c.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs sm:text-sm hover:bg-muted transition-colors"
+                aria-label={`${c.issuer} certification: ${c.name}`}
+                title={`${c.issuer} • ${c.name}${c.note ? ` — ${c.note}` : ""}`}
+              >
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span className="font-medium">{c.issuer}</span>
+                <span className="opacity-80">• {c.name}</span>
+                {c.note ? <span className="opacity-60">({c.note})</span> : null}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
             <Button asChild aria-label="Open FinSight LLM">
               <a href="https://www.finsight-llm.com/" target="_blank" rel="me noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-1" /> Try FinSight
@@ -492,7 +550,9 @@ export default function Portfolio() {
           <div className="space-y-2">
             <h3 className="font-semibold text-base sm:text-lg">Certification</h3>
             <ul className="list-disc list-inside text-sm">
-              <li>Microsoft Certified: Azure AI Engineer Associate — <i>Exam scheduled Oct 24, 2025</i></li>
+              <li>Azure AI Engineer (Microsoft) — <i>Exam Oct 2025</i></li>
+              <li>IBM Applied AI Developer — <i>Professional Certificate (In Progress)</i></li>
+              <li>Generative AI Fundamentals — <i>Databricks (Issued Oct 2024)</i></li>
             </ul>
           </div>
 
@@ -507,7 +567,6 @@ export default function Portfolio() {
             <h3 className="font-semibold text-base sm:text-lg">Recent Experience</h3>
             <ul className="list-disc list-inside text-sm leading-6">
               <li><b>Independent AI Engineer — Production Deployments</b> (May 2023 – Present)</li>
-              {/* Athletico role removed to match résumé; re-add if you want it on-site */}
             </ul>
           </div>
         </section>
